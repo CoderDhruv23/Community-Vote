@@ -1,1 +1,1 @@
-# Community-Vote
+ A dynamic platform designed to foster community engagement, where community members can discuss issues, propose solutions, and participate in democratic voting processes to elect representatives or presidents for their buildings or neighborhoods.
