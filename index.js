@@ -11,19 +11,29 @@ app.set('view engine', 'ejs');
 app.set('views', [path.join(__dirname, 'views'), path.join(__dirname, 'server/routes')]);
 
 // Serve static files from the public directory
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'views/partials')));
 
 // Route for rendering the EJS template
 app.get('/', (req, res) => {
-  res.render('main', {
-    title: 'Community Vote'
-  });
+  res.render("index.ejs");
 });
 
 
+// app.get("/vote", (req, res) => {
+//     res.render("vote.ejs");
+//   });
+
+app.get("/about", (req, res) => {
+    res.render("about.ejs");
+  });
+  
+  app.get("/contact", (req, res) => {
+    res.render("contact.ejs");
+  });
 
 
 
+//-----------------------------------------------------------------------------------------------------
 
 // Error handling for 404 - Not Found
 app.use((req, res, next) => {

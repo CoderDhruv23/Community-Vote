@@ -1,85 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">
-    <title>document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Link to local styles.css file in public/css directory -->
+  <!-- <link rel="stylesheet" href="/css/styles.css"> -->
+  <title>EJS Partials</title>
 </head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f7f7f7;
+      }
+      
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #ffffff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        
+      }
+      
+      #LOGO {
+        padding: 0 40px;
+        color: rgb(0, 0, 0);
+      }
+      
+      .nav {
+        display: flex;
+        align-items: center;
+        
+      }
+      
+      .nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0 60px;
+        display: flex;
+      }
+      
+      .nav ul li {
+        position: relative;
+        margin: 0 15px;
+      }
+      
+      .nav ul li a {
+        text-decoration: none;
+        color: #000000;
+        padding: 10px 0;
+        display: block;
+        position: relative; 
+      }
+      
+      .nav ul li a:hover {
+        color: #007BFF;
+      }
+      
+      .nav ul li ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        padding: 0; 
+        margin: 0; 
+      }
+      
+      .nav ul li:hover ul {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      .nav ul li ul li {
+        width: 200px; 
+        margin: 0; 
+      }
+      
+      .nav ul li ul li a {
+        padding: 10px; 
+        display: block;
+        color: #000000;
+      }
+      
+      .nav ul li ul li a:hover {
+        background-color: #f0f0f0;
+        color: #000000;
+      }
+      
+      .enquire-now {
+        background-color: #24e10b;
+        color: #fff;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+      }
+      
+      .enquire-now:hover {
+        background-color: #148c04;
+      }
+      
+      .nav img {
+        width: 30px;
+        padding: 0 25px;
+      }
+      
+      .nav img:hover {
+        width: 35px;
+      }
+      
+      .user {
+        width: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+        margin-left: 30px;
+      }
+      
+      .wrap-subMenu {
+        position: absolute;
+        top: 9%;
+        right: 2%;
+        width: 320px;
+        max-height: 0px;
+        overflow: hidden;
+        transition: max-height 0.5s;
+      }
+      
+      .wrap-subMenu.open-menu {
+        max-height: 300px;
+      }
+      
+      .subMenu {
+        background: rgba(255, 255, 255, 0.374);
+        height: 300px;
+      }
+      
+      .userInfo {
+        display: flex;
+        align-items: center;
+      }
+      
+      .userInfo h3 {
+        font-weight: 500;
+      }
+      
+      .userInfo img {
+        width: 40px;
+        border-radius: 10%;
+        margin-right: 15px;
+        margin-left: 10px;
+      }
+      
+      .subMenu hr {
+        border: 0;
+        height: 1px;
+        width: 90%;
+        background: #000000;
+        margin: 15px 10px;
+      }
+      
+      .subMenu-link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #525252;
+        margin: 12px 15px;
+      }
+      
+      .subMenu-link p {
+        width: 100%;
+      }
+      
+      .subMenu-link img {
+        width: 30px;
+        background: #8abcee7f;
+        border-radius: 10%;
+        padding: 8px;
+        margin-right: 15px;
+      }
+      
+      .subMenu-link span {
+        font-size: 22px;
+        transition: transform 0.5s;
+      }
+      
+      .subMenu-link:hover span {
+        transform: translate(5px);
+      }
+      
+      .subMenu-link:hover p {
+        font-weight: 600;
+      }
+
+
+
+
+
+
+
+      footer {
+        flex: 0 0 auto;
+      }
+</style>
+
 <body>
-    <header class="header">
-            <img id=LOGO src="/img/moyaiLogo.png" width="45" >
-        <nav class="nav">
-            <ul>
-                <li>
-                    <a href="#">About Us</a>
-                    <ul>
-                        <li><a href="#">What we Do</a></li>
-                        <li><a href="#">Our Team</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Medical Equipment</a>
-                    <ul>
-                        <li><a href="#">Rental</a></li>
-                        <li><a href="#">Buy</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Our Services</a>
-                    <ul>
-                        <li><a href="#">Elder Care</a></li>
-                        <li><a href="#">Nursing Care</a></li>
-                        <li><a href="#">Doctor Consultation</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <a href="#" class="enquire-now">Enquire Now</a>
-            <img src="/img/user.png" onclick="toggleMenu()">
-        </nav>
-        
+  <header class="header">
+    <img id="LOGO" src="/img/logoVote.png" width="45" >
+    <nav class="nav">
+      <ul>
+        <li>
+          <a href="#">Home</a>
+        </li>
+        <li>
+          <a href="#">Notifications</a>
+          <ul>
+            <li><a href="#">Notif1</a></li>
+            <li><a href="#">Notif2</a></li>
+          </ul>
+        </li>
+      </ul>
+      <a href="#" class="enquire-now">Login</a>
+      <img src="/assets/img/user.png" onclick="toggleMenu()" >
+    </nav>
 
-
-        <div class="wrap-subMenu" id="SUBMENU">
-            <div class="subMenu">
-                <div class="userInfo">
-                    <img src="/img/user.png" >
-                    <h3>Vasundhara Dixit</h3>
-                </div>
-
-                <hr>
-
-                <a href="#" class="subMenu-link">
-                    <img src="/img/editing.png" >
-                    <p>Edit Profile</p>
-                    <span>></span>
-                </a>
-        
-                <a href="#" class="subMenu-link">
-                    <img src="/img/shopping-cart.png" >
-                    <p>My Cart</p>
-                    <span>></span>
-                </a>
-        
-                <a href="#" class="subMenu-link">
-                    <img src="/img/logout.png" >
-                    <p>Logout</p>
-                    <span>></span>
-                </a>
-
-
-                
-            </div>
+    <div class="wrap-subMenu" id="SUBMENU">
+      <div class="subMenu">
+        <div class="userInfo">
+          <img src="/assets/img/user.png" >
+          <h3>Vasundhara Dixit</h3>
         </div>
+        <hr>
+        <a href="#" class="subMenu-link">
+          <img src="/assets/img/editing.png" alt="Edit Profile">
+          <p>Edit Profile</p>
+          <span>></span>
+        </a>
+        <a href="#" class="subMenu-link">
+          <img src="/assets/img/logout.png" alt="Logout">
+          <p>Logout</p>
+          <span>></span>
+        </a>
+      </div>
+    </div>
+  </header>
 
-    </header>
+  <script>
+    let SUBMENU = document.getElementById("SUBMENU");
 
-    <script>
-        let SUBMENU = document.getElementById("SUBMENU");
-
-        function toggleMenu() {
-            SUBMENU.classList.toggle("open-menu")
-        }
-    </script>
+    function toggleMenu() {
+      SUBMENU.classList.toggle("open-menu");
+    }
+  </script>
+  
+  <main class="container">
+    <!-- Main content here -->
+  </main>
 </body>
+
 </html>
