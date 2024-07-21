@@ -1,1 +1,85 @@
-<h1> HEADER <h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>document</title>
+</head>
+<body>
+    <header class="header">
+            <img id=LOGO src="/img/moyaiLogo.png" width="45" >
+        <nav class="nav">
+            <ul>
+                <li>
+                    <a href="#">About Us</a>
+                    <ul>
+                        <li><a href="#">What we Do</a></li>
+                        <li><a href="#">Our Team</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Medical Equipment</a>
+                    <ul>
+                        <li><a href="#">Rental</a></li>
+                        <li><a href="#">Buy</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Our Services</a>
+                    <ul>
+                        <li><a href="#">Elder Care</a></li>
+                        <li><a href="#">Nursing Care</a></li>
+                        <li><a href="#">Doctor Consultation</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <a href="#" class="enquire-now">Enquire Now</a>
+            <img src="/img/user.png" onclick="toggleMenu()">
+        </nav>
+        
+
+
+        <div class="wrap-subMenu" id="SUBMENU">
+            <div class="subMenu">
+                <div class="userInfo">
+                    <img src="/img/user.png" >
+                    <h3>Vasundhara Dixit</h3>
+                </div>
+
+                <hr>
+
+                <a href="#" class="subMenu-link">
+                    <img src="/img/editing.png" >
+                    <p>Edit Profile</p>
+                    <span>></span>
+                </a>
+        
+                <a href="#" class="subMenu-link">
+                    <img src="/img/shopping-cart.png" >
+                    <p>My Cart</p>
+                    <span>></span>
+                </a>
+        
+                <a href="#" class="subMenu-link">
+                    <img src="/img/logout.png" >
+                    <p>Logout</p>
+                    <span>></span>
+                </a>
+
+
+                
+            </div>
+        </div>
+
+    </header>
+
+    <script>
+        let SUBMENU = document.getElementById("SUBMENU");
+
+        function toggleMenu() {
+            SUBMENU.classList.toggle("open-menu")
+        }
+    </script>
+</body>
+</html>
