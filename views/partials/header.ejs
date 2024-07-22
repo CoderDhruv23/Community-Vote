@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Link to local styles.css file in public/css directory -->
   <!-- <link rel="stylesheet" href="/css/styles.css"> -->
-  <title>EJS Partials</title>
+  <title>header</title>
 </head>
 <style>
     body {
@@ -17,16 +17,19 @@
       }
       
       .header {
+        width: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 10px 20px;
         background-color: #ffffff;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        
+
+
       }
       
       #LOGO {
+        margin-left: 230px;
         padding: 0 40px;
         color: rgb(0, 0, 0);
       }
@@ -34,6 +37,7 @@
       .nav {
         display: flex;
         align-items: center;
+        
         
       }
       
@@ -58,7 +62,7 @@
       }
       
       .nav ul li a:hover {
-        color: #007BFF;
+        color: #48398f;
       }
       
       .nav ul li ul {
@@ -98,16 +102,16 @@
         color: #000000;
       }
       
-      .enquire-now {
-        background-color: #24e10b;
+      .login {
+        background-color: #48398f;
         color: #fff;
         padding: 10px 20px;
         text-decoration: none;
         border-radius: 5px;
       }
       
-      .enquire-now:hover {
-        background-color: #148c04;
+      .login:hover {
+        background-color: #594f8d;
       }
       
       .nav img {
@@ -202,15 +206,163 @@
         font-weight: 600;
       }
 
+      .notif-count {
+        background-color: hsl(0, 95%, 65%);
+        border-radius: 0.8rem;
+        color: white;
+        font-size: 0.7 rem;
+        width: fit-content;
+        padding: 0.1rem 0.4rem;
+        position: absolute;
+        top: -0.5rem;
+        left: -15px;
+        
 
-
-
-
-
-
-      footer {
-        flex: 0 0 auto;
       }
+
+      .notif-popup {
+        position: absolute;
+        top: 70px;
+        width: 250px;
+        background-color: #e3e1e1;
+        border-radius: 20px;
+        padding: 20px;
+        box-shadow: 0 0 2rem #ded2f6;
+        z-index: 8;
+        display: none;
+      }
+
+      .notif-body {
+        padding-top: 8px;
+      }
+
+      .notif-popup::before {
+        content: '';
+        width: 1.5rem;
+        height: 1.5rem;
+        display: block;
+        background: #e3e1e1;
+        position: absolute;
+        top: -9px;
+        left: 30px;
+        transform: rotate(45deg);
+        border-radius: 4px;
+
+      }
+
+      .notif-popup > div {
+        display: flex;
+        align-items: start;
+        gap: 1rem;
+
+      }
+
+      .notif-popup small {
+        display: block;
+      }
+
+      .wrapper{
+        display: flex;
+        position: relative;
+      }
+      
+      .wrapper .sidebar{
+        
+        width: 230px;
+        height: 100%;
+        background: #0f0445;
+        padding: 30px 0px;
+        position: fixed;
+      }
+      
+      .wrapper .sidebar h2{
+        color: #fff;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 30px;
+        padding-top: -10px;
+      }
+      
+      .wrapper .sidebar ul li{
+
+        padding: 15px;
+        border-bottom: 1px solid #ffffff;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+        border-top: 1px solid rgba(255,255,255,0.05);
+      }    
+      
+      .wrapper .sidebar ul li a{
+        color: #ffffff;
+        display: block;
+        text-decoration: none;
+        align-items: flex-start;
+      }
+      
+      .wrapper .sidebar ul li a .fas{
+        width: 25px;
+      }
+      
+      .wrapper .sidebar ul li:hover{
+        background-color: #594f8d;
+      }
+          
+      .wrapper .sidebar ul li:hover a{
+        color: #fff;
+      }
+       
+      .wrapper .sidebar .social_media{
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        padding-bottom: 40px;
+      }
+      
+      .wrapper .sidebar .social_media a{
+        display: block;
+        width: 40px;
+        background: #594f8d;
+        height: 40px;
+        line-height: 45px;
+        text-align: center;
+        margin: 0 5px;
+        color: #bdb8d7;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+      }
+      
+      .wrapper .main_content{
+        width: 100%;
+        margin-left: 200px;
+      }
+      
+      .wrapper .main_content .header{
+        padding: 20px;
+        background: #fff;
+        color: #717171;
+        border-bottom: 1px solid #e0e4e8;
+      }
+      
+      .wrapper .main_content .info{
+        margin: 20px;
+        color: #717171;
+        line-height: 25px;
+      }
+      
+      .wrapper .main_content .info div{
+        margin-bottom: 20px;
+      }
+      
+      @media (max-height: 500px){
+        .social_media{
+          display: none !important;
+        }
+      }
+
+      
+      
+
 </style>
 
 <body>
@@ -219,17 +371,42 @@
     <nav class="nav">
       <ul>
         <li>
-          <a href="#">Home</a>
+          <a href="#"><b>Home</b> </a>
         </li>
         <li>
-          <a href="#">Notifications</a>
-          <ul>
-            <li><a href="#">Notif1</a></li>
-            <li><a href="#">Notif2</a></li>
-          </ul>
+          <a href="#" id="notifications"><small class="notif-count">9+</small><b>Notifications</b> </a>
+          <div class="notif-popup">
+            <div>
+                <div class="profile-photo">
+
+                </div>
+                <div class="notif-body">
+                    <b>New Post </b>by Mr. Mehta <br>
+                    <small class="text-muted">3 hrs ago</small>
+                </div>
+            </div>
+            <div>
+                <div class="profile-photo">
+
+                </div>
+                <div class="notif-body">
+                    <b>New Post </b>by Mrs. Kulkarni <br>
+                    <small class="text-muted">1 day ago</small>
+                </div>
+            </div>
+            <div>
+                <div class="profile-photo">
+
+                </div>
+                <div class="notif-body">
+                    <b>New Post </b>by Mr. Sharma <br>
+                    <small class="text-muted">2 days ago</small>
+                </div>
+            </div>
+          </div>
         </li>
       </ul>
-      <a href="#" class="enquire-now">Login</a>
+      <a href="#" class="login">Login</a>
       <img src="/assets/img/user.png" onclick="toggleMenu()" >
     </nav>
 
@@ -254,17 +431,39 @@
     </div>
   </header>
 
+  
+  
+  <main class="container">
+    <div class="wrapper">
+      <div class="sidebar">
+          <h2>Web Name</h2>
+          <ul>
+              <li><a href="#"><i class="fas fa-posts"></i>New Posts</a></li>
+              <li><a href="#"><i class="fas fa-announcement"></i>Announcements</a></li>
+              <li><a href="vote"><i class="fas fa-post"></i>Voting</a></li>
+              <li><a href="#"><i class="fas fa-post"></i>Start Discussion</a></li>
+              <li><a href="#"><i class="post"></i>Report an Issue</a></li>
+              <li><a href="about"><i class="fas fa-about"></i>About</a></li>
+              <li><a href="contact"><i class="fas fa-contact"></i>Contact</a></li>
+  
+          </ul> 
+          <div class="social_media">
+            <a href="#"><i class="fab fa-linkedin-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+
+      
+  </main>
+
   <script>
-    let SUBMENU = document.getElementById("SUBMENU");
+    let SUBMENU = document.getElementsByClassName("wrap-subMenu");
 
     function toggleMenu() {
       SUBMENU.classList.toggle("open-menu");
     }
   </script>
-  
-  <main class="container">
-    <!-- Main content here -->
-  </main>
 </body>
 
 </html>

@@ -1,30 +1,147 @@
-<!-- </main>
+
+<style>
+  footer {
+    width: 90%;
+    background-color: #0f0f0f;
+    color: #ecf0f1;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 60%;
+    margin-left: 230px;
+    clear: both;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .footer-left, .footer-center, .footer-right {
+    flex: 1;
+    padding: 10px;
+  }
+  
+  .footer-left h3 {
+    margin-bottom: 10px;
+  }
+  
+  .footer-left p {
+    margin: 0 0 20px;
+  }
+  
+  .footer-links, .social-icons {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-links li, .social-icons li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+  
+  .footer-links a, .social-icons a {
+    color: #ecf0f1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-links a:hover, .social-icons a:hover {
+    color: #3498db;
+  }
+  
+  .social-icons i {
+    font-size: 20px;
+  }
+  
+  .footer-right p {
+    margin: 0;
+  }
+  
+  .team-section {
+    background-color: transparent;
+    backdrop-filter: blur(20px);
+    padding: 20px 0;
+  }
+  
+  .team-section h3 {
+    margin-bottom: 20px;
+  }
+  
+  .team-members {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .team-member {
+    margin: 10px;
+    text-align: center;
+  }
+  
+  .team-member img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+  
+  .team-member h4 {
+    margin: 5px 0;
+  }
+  
+  .team-member p {
+    margin: 0;
+    color: #bdc3c7;
+  }
+  
+</style>
+
 <footer>
-  <div class="waves">
-    <div class="wave" id="wave1"></div>
-    <div class="wave" id="wave2"></div>
-    <div class="wave" id="wave3"></div>
-    <div class="wave" id="wave4"></div>
+  <div class="footer-container">
+    <div class="footer-left">
+      <h3>Community Management Platform</h3>
+      <p>Empowering communities through collaboration and engagement.</p>
+      <ul class="social-icons">
+        <li><a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></li></a>
+        <li><a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a></li>
+      </ul>
+    </div>
+    <div class="footer-center">
+      <ul class="footer-links">
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+        <li><a href="/terms">Terms of Service</a></li>
+        <li><a href="/privacy">Privacy Policy</a></li>
+      </ul>
+    </div>
+    <div class="footer-right">
+      <p>&copy; <%= new Date().getFullYear() %> Community Management Platform. All rights reserved.</p>
+    </div>
   </div>
-  <ul class="social_icon">
-    <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
-    <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
-    <li><a href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
-    <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
-  </ul>
-
-  <ul class="menu">
-    <li><a href="#">Home</a></li>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Services</a></li>
-    <li><a href="#">Team</a></li>
-    <li><a href="#">Contact</a></li>
-  </ul>
-  <p class="copyright"> Made with ❤️</p>
+  <div class="team-section">
+    <h3>Our Team</h3>
+    <div class="team-members">
+      <div class="team-member">
+        <img src="/images/team1.jpg" alt="Team Member 1">
+        <h4>Jane Doe</h4>
+        <p>Project Manager</p>
+      </div>
+      <div class="team-member">
+        <img src="/images/team2.jpg" alt="Team Member 2">
+        <h4>John Smith</h4>
+        <p>Lead Developer</p>
+      </div>
+      <div class="team-member">
+        <img src="/images/team3.jpg" alt="Team Member 3">
+        <h4>Emily Johnson</h4>
+        <p>UI/UX Designer</p>
+      </div>
+      <!-- Add more team members as needed -->
+    </div>
+  </div>
 </footer>
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
-</body>
-
-</html> -->

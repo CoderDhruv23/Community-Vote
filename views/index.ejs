@@ -1,7 +1,71 @@
-<%- include("partials/header.ejs") %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CVote</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+    *,
+    *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    border: none;
+  }
+
+  body {
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden ;
+  }
+
+  main .container {
+    display: grid;
+    grid-template-columns: 18vh auto 20vw;
+    column-gap: 2rem;
+    position: relative;
+  }
+
+  main .container .left {
+    height: max-content;
+    position: sticky;
+  }
+    </style>
+<body>
 
 
-  <%- include("partials/sidePanel.ejs") %>
+
+  <%- include("partials/header.ejs") %>
+
+<main>
+  <div class="container">
+    <!-- ----------------------------Left--------------------------------- -->
+    <div class="left">
+      <%- include("partials/sidePanel.ejs") %>
+    </div>
+    <!-- ----------------------------middle--------------------------------- -->
+    <div class="middle">
+      <form action=""></form>
+    </div>
+    <!-- ----------------------------right--------------------------------- -->
+    <div class="right">
+
+    </div>
+  </div>
+</main>
   
 
   <%- include("partials/footer.ejs") %>
+
+
+
+
+
+  
+</body>
+</html>
