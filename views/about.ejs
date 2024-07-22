@@ -1,17 +1,205 @@
-<h1>About us</h1>
-<img class="profile" src="images/cat.jpeg" alt="cat profile">
-<p>
-  Quam purus justo enim purus, dolor enim, ut eu lectus nam eget nibh. Ante illum nullam leo, vivamus aliquam massa
-  massainceptos fermentum porttitor, blandit vehicula, lorem in placerat ut aliquam at sociosqu. Vivamus duis
-  ultricies
-  aliquam placerat, tincidunt scelerisque imperdiet, egestas erat vel. Libero rerum. Donec ligula tristique, purus
-  montes,
-  feugiatid nunc in a nec. Duis odio, vitae sed etiam mi massa, laoreet amet purus amet rhoncus, eget sed, arcu
-  urna.
-  Maecenaswisi id, at donec enim. Proin nisl, pulvinar leo suspendisse, cum parturient non, congue leo et ut in,
-  neque ut
-  lacusauctor quam fermentum urna. Metus quis, mauris dictum aptent ultrices nulla viverra ornare, tempor elit enim
-  leo
-  donec,sed sed. Vivamus sapien facilisi, tempor arcu nulla justo sed et, eget suspendisse lacus sed nunc mattis
-  lectus.
-  Metusgravida.</p>
+<style>
+  body {
+    background-color: #000000;
+    color: #f0f0f0;
+    font-family: Arial, sans-serif;
+  }
+
+  .about-section {
+    padding: 40px;
+    margin: 40px;
+    border-radius: 10px;
+    background-color: #121212;
+    box-shadow: 0 4px 8px rgba(29, 29, 29, 0.2);
+  }
+
+  .about-section:hover {
+    background-color: #1d1c1c;
+  }
+
+  .about-section h2 {
+    color: #ffffff;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ffffff;
+    padding-bottom: 10px;
+    text-align: center;
+  }
+
+  .about-section p {
+    font-size: 1.2em;
+    line-height: 1.8;
+    text-align: center;
+  }
+
+  .about-section a {
+    color: #1e90ff;
+    text-decoration: none;
+    border-bottom: 1px solid #1e90ff;
+  }
+
+  .about-section a:hover {
+    color: #ff6347;
+    border-bottom: 1px solid #ff6347;
+  }
+.contact-section form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-section .form-group {
+  margin-bottom: 15px;
+}
+
+.contact-section label {
+  margin-bottom: 5px;
+  display: block;
+  color: #2c3e50;
+}
+
+.contact-section input,
+.contact-section textarea {
+  padding: 10px;
+  border: 1px solid #bdc3c7;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.contact-section button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #3498db;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-section button:hover {
+  background-color: #2980b9;
+}
+
+
+footer {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-left, .footer-center, .footer-right {
+  flex: 1;
+  padding: 10px;
+}
+
+.footer-left h3 {
+  margin-bottom: 10px;
+}
+
+.footer-left p {
+  margin: 0 0 20px;
+}
+
+.footer-links, .social-icons {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li, .social-icons li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.footer-links a, .social-icons a {
+  color: #ecf0f1;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover, .social-icons a:hover {
+  color: #3498db;
+}
+
+.social-icons i {
+  font-size: 20px;
+}
+
+.footer-right p {
+  margin: 0;
+}
+
+.team-section {
+  background-color: #34495e;
+  padding: 20px 0;
+}
+
+.team-section h3 {
+  margin-bottom: 20px;
+}
+
+.team-members {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.team-member {
+  margin: 10px;
+  text-align: center;
+}
+
+.team-member img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.team-member h4 {
+  margin: 5px 0;
+}
+
+.team-member p {
+  margin: 0;
+  color: #bdc3c7;
+}
+</style>
+
+<section class="about-section" id="about">
+  <h2>About Us</h2>
+  <p>Our platform is dedicated to empowering communities through collaboration and engagement. We provide a dynamic and interactive space where users can vote on important issues, participate in engaging polls, join lively discussions, and much more. Whether you're passionate about a specific topic or just looking to connect with like-minded individuals, our platform offers something for everyone. <br>
+
+    Our goal is to create a vibrant and inclusive community for all. We believe that every voice matters, and our features are designed to ensure that everyone can participate meaningfully. Users can express their opinions through upvotes and downvotes, track trends with detailed statistics, and engage in constructive dialogues in our discussion forums. <br>
+    
+    For those who wish to take on more responsibility, we offer roles such as admin and moderator to help maintain the community's integrity and ensure a respectful environment. With robust login and signup pages, we ensure a secure and personalized experience for every user. <br>
+    
+    Join us in building a community where collaboration and engagement are at the forefront. Together, we can create a space where ideas flourish, and everyone feels heard and valued.</p>
+</section>
+
+<!--<section class="contact-section" id="contact">
+   <h2>Contact Us</h2>
+  <form action="/contact" method="post" onsubmit="sendEmail()"; reset(); return false;>
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div class="form-group">
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" required></textarea>
+    </div>
+    <button type="submit">Send</button>
+  </form> 
+</section>-->
