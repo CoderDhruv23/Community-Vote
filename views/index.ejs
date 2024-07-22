@@ -35,6 +35,48 @@
     height: max-content;
     position: sticky;
   }
+
+  .middle {
+    margin-left: 300px;
+
+  }
+
+  .middle .create-post {
+    width: 700px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem;
+    background: white;
+    padding: 0.4rem;
+    border-radius: 20px;
+    border: none;
+  }
+  .middle .create-post {
+    background: rgb(234, 234, 234);
+  }
+  .middle .create-post input[type="text"] {
+    justify-self: start;
+    width: 100%;
+    padding-left: 1rem;
+    background-color: transparent;
+    margin-right: 1rem;
+  }
+
+  .middle .post-btn {
+    background-color: #48398f ;
+    width: 6rem;
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: white;
+    
+  }
+
+  .middle .post-btn:hover {
+    background-color: #594f8d;
+  }
+  
     </style>
 <body>
 
@@ -50,7 +92,14 @@
     </div>
     <!-- ----------------------------middle--------------------------------- -->
     <div class="middle">
-      <form action=""></form>
+      <form class="create-post">
+        <div class="profile-photo">
+
+        </div>
+        <input type="text" placeholder="..." class="create-post" >
+
+        <button type="submit" class="post-btn">Post</button>
+      </form>
     </div>
     <!-- ----------------------------right--------------------------------- -->
     <div class="right">
