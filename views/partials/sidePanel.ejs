@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
     .wrapper{
         display: flex;
@@ -135,4 +136,143 @@
 
     <script>
 
+=======
+<style>
+    .wrapper{
+        display: flex;
+        position: relative;
+      }
+      
+      .wrapper .sidebar{
+        top: 0;
+        width: 230px;
+        height: 100%;
+        background: #000000;
+        padding: 0px 0px;
+        position: fixed;
+      }
+      
+      .wrapper .sidebar h2{
+        color: #fff;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 30px;
+        margin-top: 20px;
+        padding-bottom: 50px;
+      }
+      
+      .wrapper .sidebar ul li{
+        
+        padding: 15px;
+        border-bottom: 1px solid #ffffff;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+        border-top: 1px solid rgba(255,255,255,0.05);
+        border-radius: 20px;
+      }    
+      
+      .wrapper .sidebar ul li a{
+        top: 50px;
+        color: #ffffff;
+        display: block;
+        text-decoration: none;
+        align-items: flex-start;
+      }
+      
+      .wrapper .sidebar ul li a .fas{
+        width: 25px;
+      }
+      
+      .wrapper .sidebar ul li:hover{
+        background-color: #988bd6;
+        transition: all 200ms ease;
+      }
+          
+      .wrapper .sidebar ul li:hover a{
+        color: #fff;
+      }
+       
+      .wrapper .sidebar .social_media{
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+      }
+
+      .wrapper .sidebar .social_media:hover {
+        
+      }
+      
+      .wrapper .sidebar .social_media a{
+        display: block;
+        width: 40px;
+        background: #6b56d4;
+        height: 40px;
+        line-height: 45px;
+        text-align: center;
+        margin: 0 5px;
+        color: #bdb8d7;
+        
+        border-radius: 5px;
+      }
+
+      .wrapper .sidebar .social_media a:hover {
+        background: #543bd4 ;
+      }
+      
+      .wrapper .main_content{
+        width: 100%;
+        margin-left: 200px;
+      }
+      
+      .wrapper .main_content .header{
+        padding: 20px;
+        background: #fff;
+        color: #717171;
+        border-bottom: 1px solid #e0e4e8;
+      }
+      
+      .wrapper .main_content .info{
+        margin: 20px;
+        color: #717171;
+        line-height: 25px;
+      }
+      
+      .wrapper .main_content .info div{
+        margin-bottom: 20px;
+      }
+      
+      @media (max-height: 500px){
+        .social_media{
+          display: none !important;
+        }
+      }
+</style>
+
+
+<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
+<div class="wrapper">
+    <div class="sidebar">
+        <h2>CVote</h2>
+        <ul>
+            <li><a href="posts"><i class="fas fa-posts"></i>New Posts</a></li>
+            <li><a href="#"><i class="fas fa-announcement"></i>Announcements</a></li>
+            <li><a href="vote"><i class="fas fa-post"></i>Voting</a></li>
+            <li><a href="posts"><i class="fas fa-post"></i>Start Discussion</a></li>
+            <li><a href="posts"><i class="fas fa-post"></i>Report Issue</a></li>
+            <li><a href="about"><i class="fas fa-about"></i>About</a></li>
+            <li><a href="contact"><i class="fas fa-contact"></i>Contact</a></li>
+
+        </ul> 
+        <div class="social_media">
+          <a href="#"><i class="fab fa-linkedin-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+
+    <script>
+
+>>>>>>> 0994f3477e4a164c9fc51641036daf1cadbc1700
     </script>

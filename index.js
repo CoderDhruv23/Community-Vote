@@ -30,6 +30,12 @@ app.get("/about", (req, res) => {
   app.get("/contact", (req, res) => {
     res.render("contact.ejs");
   });
+  app.get("/signin", (req, res) => {
+    res.render("signin.ejs");
+  });
+  app.get("/register", (req, res) => {
+    res.render("register.ejs");
+  });
 
 
   // Dummy data for posts
