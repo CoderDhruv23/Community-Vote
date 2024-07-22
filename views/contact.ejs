@@ -1,119 +1,126 @@
-<style>
-  *{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  body {
-    font-family: 'Outfit';
-    background: linear-gradient(#faf9fb, #9d9eec);
-
-  }
-  .contact-container{
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    background-color: transparent;
-  }
-  .contact-left {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 500px;
-    width: 500px;
-    background-color: #ffffff;
-    gap: 20px;
-    border-radius: 10px;
-    box-shadow: #0c0c0c;
-  }
-  .contact-left-title h2{
-    font-weight: 600;
-    color: #0f0445;
-    font-size: 40px;
-    margin: 15px 5px;
-  }
-  .contact-left-title h2:hover {
-    font-size: 42px;
-  }
-  .contact-left-title hr {
-    border: none ;
-    width: 120px;
-    height: 5px;
-    background-color:#917fee ;
-    border-radius: 10px;
-    margin-bottom: 20px;
-  }
-  .contact-inputs {
-    width: 400px;
-    height: 50px;
-    border: none;
-    outline: none;
-    padding-left: 25px;
-    font-weight: 500;
-    color: grey;
-    border-radius: 10px;
-    background-color: #efebeb88;
-  }
-
-  .contact-inputs:hover {
-    background-color: #e1dede88;
-
-  }
-  .contact-left textarea {
-    height: 140px;
-    padding-top: 15px;
-    border-radius: 15px;
-    background-color: #efebeb88;
-  }
-  .contact-inputs:focus {
-    border: 2px solid #917fee;
-  }
-  .contact-inputs::placeholder {
-    color: #b5b4b4;
-  }
-  .contact-left button {
-    display: flex;
-    width: 400px;
-    justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-    padding: 15px 30px;
-    font-size: 16px;
-    font-weight: 300;
-    color: #ffffff;
-    gap: 10px;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    background-color: #000000;
-  }
-  .contact-left button:hover {
-    background-color: #262626;
-  }
-  @media (max-width: 800px) {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Form</title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Outfit';
+      background: linear-gradient(#faf9fb, #9d9eec);
+    }
+    .contact-container{
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      background-color: transparent;
+    }
+    .contact-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 500px;
+      width: 500px;
+      background-color: #ffffff;
+      gap: 20px;
+      border-radius: 10px;
+      box-shadow: #0c0c0c;
+    }
+    .contact-left-title h2{
+      font-weight: 600;
+      color: #0f0445;
+      font-size: 40px;
+      margin: 15px 5px;
+    }
+    .contact-left-title h2:hover {
+      font-size: 42px;
+    }
+    .contact-left-title hr {
+      border: none;
+      width: 120px;
+      height: 5px;
+      background-color: #917fee;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
     .contact-inputs {
-      width: 80vw;
+      width: 400px;
+      height: 50px;
+      border: none;
+      outline: none;
+      padding-left: 25px;
+      font-weight: 500;
+      color: grey;
+      border-radius: 10px;
+      background-color: #efebeb88;
     }
-    .contact-right {
-      display: none;
-    }
-  }
-</style>
 
-<div class="contact-container">
-  <form action="https://api.web3forms.com/submit" method="POST" class="contact-left">
-    <div class="contact-left-title">
-      <h2>Get in Touch</h2>
-      <hr>
+    .contact-inputs:hover {
+      background-color: #e1dede88;
+    }
+    .contact-left textarea {
+      height: 140px;
+      padding-top: 15px;
+      border-radius: 15px;
+      background-color: #efebeb88;
+    }
+    .contact-inputs:focus {
+      border: 2px solid #917fee;
+    }
+    .contact-inputs::placeholder {
+      color: #b5b4b4;
+    }
+    .contact-left button {
+      display: flex;
+      width: 400px;
+      justify-content: center; /* Center horizontally */
+      align-items: center; /* Center vertically */
+      padding: 15px 30px;
+      font-size: 16px;
+      font-weight: 300;
+      color: #ffffff;
+      gap: 10px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      background-color: #000000;
+    }
+    .contact-left button:hover {
+      background-color: #262626;
+    }
+    @media (max-width: 800px) {
+      .contact-inputs {
+        width: 80vw;
+      }
+      .contact-right {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="contact-container">
+    <form action="https://api.web3forms.com/submit" method="POST" class="contact-left">
+      <div class="contact-left-title">
+        <h2>Get in Touch</h2>
+        <hr>
+      </div>
+      <input type="hidden" name="access_key" value="da6891c7-cb20-447c-9ca3-90390c361f82">
+      <input type="text" name="name" placeholder="Your Name" class="contact-inputs" required>
+      <input type="text" name="email" placeholder="email" class="contact-inputs" required>
+      <textarea name="message" placeholder="Your Message" class="contact-inputs"></textarea>
+      <button type="submit">Submit</button>
+    </form>
+    <div class="contact-right">
+      <img src="contact-right.png" alt="Contact Image">
     </div>
-
-    <input type="hidden" name="access_key" value="da6891c7-cb20-447c-9ca3-90390c361f82">
-    <input type="text" name="name" placeholder="Your Name" class="contact-inputs" required>
-    <input type="text" name="email" placeholder="email" class="contact-inputs" required>
-    <textarea name="messege" placeholder="Your Message" class="contact-inputs"></textarea>
-    <button type="submit">Submit</button>
-  </form>
-  <div class="contact-right">
-    <img src="4111242.png">
   </div>
-</div>
+</body>
+</html>
+  
