@@ -2,6 +2,7 @@ import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
+
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -23,8 +24,8 @@ app.get("/vote", (req, res) => {
     res.render("vote.ejs");
   });
 
-  app.get("/posts", (req, res) => {
-    res.render("posts.ejs");
+  app.get("/vote", (req, res) => {
+    res.render("vote.ejs");
   });
 
 app.get("/about", (req, res) => {
@@ -43,26 +44,22 @@ app.get("/about", (req, res) => {
 
 
   // Dummy data for posts
-const posts = [
-  {
-    title: 'Post Title 1',
-    author: 'User1',
-    date: 'July 22, 2024',
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel ligula scelerisque, finibus odio eu, hendrerit sapien.'
-  },
-  {
-    title: 'Post Title 2',
-    author: 'User2',
-    date: 'July 21, 2024',
-    content: 'Quisque vel nulla euismod, pulvinar quam at, sollicitudin quam. Vivamus sit amet sapien ut urna dictum tincidunt.'
-  },
-  {
-    title: 'Post Title 3',
-    author: 'User3',
-    date: 'July 20, 2024',
-    content: 'Sed quis augue nec augue sodales consectetur. Suspendisse potenti. Nunc at risus non metus volutpat facilisis.'
-  }
+  let posts = [
+    {
+        author: 'Akash Gupta',
+        time: '15 mins ago',
+        content: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit...',
+        room: 'B402'
+    },
+    {
+        author: 'John Doe',
+        time: '20 mins ago',
+        content: 'Another example post content...',
+        room: 'C101'
+    }
 ];
+
+
 
 app.set('view engine', 'ejs');
 

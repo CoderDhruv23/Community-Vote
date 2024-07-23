@@ -1,469 +1,400 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Link to local styles.css file in public/css directory -->
-  <!-- <link rel="stylesheet" href="/css/styles.css"> -->
   <title>header</title>
-</head>
-<style>
+  <style>
     body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f7f7f7;
-      }
-      
-      .header {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 20px;
-        background-color: #ffffff;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+    }
+    .header {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
 
+    .nav {
+      display: flex;
+      align-items: center;
+    }
+    .nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0 60px;
+      display: flex;
+    }
+    .nav ul li {
+      position: relative;
+      margin: 0 15px;
+    }
+    .nav ul li a {
+      text-decoration: none;
+      color: #000000;
+      padding: 10px 0;
+      display: block;
+      position: relative;
+    }
+    .nav ul li a:hover {
+      color: #48398f;
+    }
+    .nav ul li ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      padding: 0;
+      margin: 0;
+    }
+    .nav ul li:hover ul {
+      display: block;
+      opacity: 1;
+      visibility: visible;
+    }
+    .nav ul li ul li {
+      width: 200px;
+      margin: 0;
+    }
+    .nav ul li ul li a {
+      padding: 10px;
+      display: block;
+      color: #000000;
+    }
+    .nav ul li ul li a:hover {
+      background-color: #f0f0f0;
+      color: #000000;
+    }
+    .login {
+      background: #aea3ef;
+      color: #fff;
+      padding: 10px 20px;
+      width: 80px;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .login:hover {
+      color: #fff;
+    }
+    .nav img {
+      width: 30px;
+      padding: 0 25px;
+    }
+    .nav img:hover {
+      width: 35px;
+    }
+    .user {
+      width: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      margin-left: 30px;
+    }
+    .wrap-subMenu {
+      position: absolute;
+      top: 9%;
+      right: 2%;
+      width: 320px;
+      max-height: 0px;
+      overflow: hidden;
+      transition: max-height 0.5s;
+    }
+    .wrap-subMenu.open-menu {
+      max-height: 300px;
+    }
+    .subMenu {
+      background: rgba(255, 255, 255, 0.374);
+      height: 300px;
+    }
+    .userInfo {
+      display: flex;
+      align-items: center;
+    }
+    .userInfo h3 {
+      font-weight: 500;
+    }
+    .userInfo img {
+      width: 40px;
+      border-radius: 10%;
+      margin-right: 15px;
+      margin-left: 10px;
+    }
+    .subMenu hr {
+      border: 0;
+      height: 1px;
+      width: 90%;
+      background: #000000;
+      margin: 15px 10px;
+    }
+    .subMenu-link {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: #525252;
+      margin: 12px 15px;
+    }
+    .subMenu-link p {
+      width: 100%;
+    }
+    .subMenu-link img {
+      width: 30px;
+      background: #8abcee7f;
+      border-radius: 10%;
+      padding: 8px;
+      margin-right: 15px;
+    }
+    .subMenu-link span {
+      font-size: 22px;
+      transition: transform 0.5s;
+    }
+    .subMenu-link:hover span {
+      transform: translate(5px);
+    }
+    .subMenu-link:hover p {
+      font-weight: 600;
+    }
+    .notif-count {
+      background-color: hsl(0, 95%, 65%);
+      border-radius: 0.8rem;
+      color: white;
+      font-size: 0.7rem;
+      width: fit-content;
+      padding: 0.1rem 0.4rem;
+      position: absolute;
+      top: -0.5rem;
+      left: -15px;
+    }
+    .notif-popup {
+      position: absolute;
+      top: 70px;
+      width: 250px;
+      background-color: #e3e1e1;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 0 2rem #ded2f6;
+      z-index: 8;
+      display: none;
+    }
+    .notif-body > div {
+      padding-top: 8px;
+      
+    }
 
-      }
-      
-      #LOGO {
-        margin-left: 230px;
-        padding: 0 40px;
-        color: rgb(0, 0, 0);
-      }
-      
-      .nav {
-        display: flex;
-        align-items: center;
-        
-        
-      }
-      
-      .nav ul {
-        list-style: none;
-        margin: 0;
-        padding: 0 60px;
-        display: flex;
-      }
-      
-      .nav ul li {
-        position: relative;
-        margin: 0 15px;
-      }
-      
-      .nav ul li a {
-        text-decoration: none;
-        color: #000000;
-        padding: 10px 0;
-        display: block;
-        position: relative; 
-      }
-      
-      .nav ul li a:hover {
-        color: #48398f;
-      }
-      
-      .nav ul li ul {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: #fff;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.3s ease, visibility 0.3s ease;
-        padding: 0; 
-        margin: 0; 
-      }
-      
-      .nav ul li:hover ul {
-        display: block;
-        opacity: 1;
-        visibility: visible;
-      }
-      
-      .nav ul li ul li {
-        width: 200px; 
-        margin: 0; 
-      }
-      
-      .nav ul li ul li a {
-        padding: 10px; 
-        display: block;
-        color: #000000;
-      }
-      
-      .nav ul li ul li a:hover {
-        background-color: #f0f0f0;
-        color: #000000;
-      }
-      
-      .login {
-        background-color: #48398f;
-        color: #fff;
-        padding: 10px 20px;
-        text-decoration: none;
-        border-radius: 5px;
-      }
-      
-      .login:hover {
-        background-color: #594f8d;
-      }
-      
-      .nav img {
-        width: 30px;
-        padding: 0 25px;
-      }
-      
-      .nav img:hover {
-        width: 35px;
-      }
-      
-      .user {
-        width: 50px;
-        border-radius: 50%;
-        cursor: pointer;
-        margin-left: 30px;
-      }
-      
-      .wrap-subMenu {
-        position: absolute;
-        top: 9%;
-        right: 2%;
-        width: 320px;
-        max-height: 0px;
-        overflow: hidden;
-        transition: max-height 0.5s;
-      }
-      
-      .wrap-subMenu.open-menu {
-        max-height: 300px;
-      }
-      
-      .subMenu {
-        background: rgba(255, 255, 255, 0.374);
-        height: 300px;
-      }
-      
-      .userInfo {
-        display: flex;
-        align-items: center;
-      }
-      
-      .userInfo h3 {
-        font-weight: 500;
-      }
-      
-      .userInfo img {
-        width: 40px;
-        border-radius: 10%;
-        margin-right: 15px;
-        margin-left: 10px;
-      }
-      
-      .subMenu hr {
-        border: 0;
-        height: 1px;
-        width: 90%;
-        background: #000000;
-        margin: 15px 10px;
-      }
-      
-      .subMenu-link {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        color: #525252;
-        margin: 12px 15px;
-      }
-      
-      .subMenu-link p {
-        width: 100%;
-      }
-      
-      .subMenu-link img {
-        width: 30px;
-        background: #8abcee7f;
-        border-radius: 10%;
-        padding: 8px;
-        margin-right: 15px;
-      }
-      
-      .subMenu-link span {
-        font-size: 22px;
-        transition: transform 0.5s;
-      }
-      
-      .subMenu-link:hover span {
-        transform: translate(5px);
-      }
-      
-      .subMenu-link:hover p {
-        font-weight: 600;
-      }
+    .notif-body > p {
+        width: 200px;
+    }
 
-      .notif-count {
-        background-color: hsl(0, 95%, 65%);
-        border-radius: 0.8rem;
-        color: white;
-        font-size: 0.7 rem;
-        width: fit-content;
-        padding: 0.1rem 0.4rem;
-        position: absolute;
-        top: -0.5rem;
-        left: -15px;
-        
-
-      }
-
-      .notif-popup {
-        position: absolute;
-        top: 70px;
-        width: 250px;
-        background-color: #e3e1e1;
-        border-radius: 20px;
-        padding: 20px;
-        box-shadow: 0 0 2rem #ded2f6;
-        z-index: 8;
-        display: none;
-      }
-
-      .notif-body {
-        padding-top: 8px;
-      }
-
-      .notif-popup::before {
-        content: '';
-        width: 1.5rem;
-        height: 1.5rem;
-        display: block;
-        background: #e3e1e1;
-        position: absolute;
-        top: -9px;
-        left: 30px;
-        transform: rotate(45deg);
-        border-radius: 4px;
-
-      }
-
-      .notif-popup > div {
-        display: flex;
-        align-items: start;
-        gap: 1rem;
-
-      }
-
-      .notif-popup small {
-        display: block;
-      }
-
-      .wrapper{
-        display: flex;
-        position: relative;
-      }
-      
-      .wrapper .sidebar{
-        
-        width: 230px;
-        height: 100%;
-        background: #0f0445;
-        padding: 30px 0px;
-        position: fixed;
-      }
-      
-      .wrapper .sidebar h2{
-        color: #fff;
-        text-transform: uppercase;
-        text-align: center;
-        margin-bottom: 30px;
-        padding-top: -10px;
-      }
-      
-      .wrapper .sidebar ul li{
-
-        padding: 15px;
-        border-bottom: 1px solid #ffffff;
-        border-bottom: 1px solid rgba(0,0,0,0.05);
-        border-top: 1px solid rgba(255,255,255,0.05);
-      }    
-      
-      .wrapper .sidebar ul li a{
-        color: #ffffff;
-        display: block;
-        text-decoration: none;
-        align-items: flex-start;
-      }
-      
-      .wrapper .sidebar ul li a .fas{
-        width: 25px;
-      }
-      
-      .wrapper .sidebar ul li:hover{
-        background-color: #594f8d;
-      }
-          
-      .wrapper .sidebar ul li:hover a{
-        color: #fff;
-      }
-       
-      .wrapper .sidebar .social_media{
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        padding-bottom: 40px;
-      }
-      
-      .wrapper .sidebar .social_media a{
-        display: block;
-        width: 40px;
-        background: #594f8d;
-        height: 40px;
-        line-height: 45px;
-        text-align: center;
-        margin: 0 5px;
-        color: #bdb8d7;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
-      }
-      
-      .wrapper .main_content{
-        width: 100%;
-        margin-left: 200px;
-      }
-      
-      .wrapper .main_content .header{
-        padding: 20px;
-        background: #fff;
-        color: #717171;
-        border-bottom: 1px solid #e0e4e8;
-      }
-      
-      .wrapper .main_content .info{
-        margin: 20px;
-        color: #717171;
-        line-height: 25px;
-      }
-      
-      .wrapper .main_content .info div{
-        margin-bottom: 20px;
-      }
-      
-      @media (max-height: 500px){
-        .social_media{
-          display: none !important;
-        }
-      }
-
-      
-      
-
-</style>
-
+    .notif-popup::before {
+      content: '';
+      width: 1.5rem;
+      height: 1.5rem;
+      display: block;
+      background: #e3e1e1;
+      position: absolute;
+      top: -9px;
+      left: 30px;
+      transform: rotate(45deg);
+      border-radius: 4px;
+    }
+    .notif-popup > div {
+      display: block;
+      align-items: start;
+      gap: 1rem;
+    }
+    .notif-popup small {
+      display: block;
+    }
+    .wrapper {
+      display: flex;
+      position: relative;
+    }
+    .wrapper .sidebar {
+      width: 230px;
+      height: 100%;
+      background: #0f0445;
+      padding: 30px 0px;
+      position: fixed;
+    }
+    .wrapper .sidebar h2 {
+      color: #fff;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .wrapper .sidebar ul li {
+      padding: 15px;
+      border-bottom: 1px solid #ffffff;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .wrapper .sidebar ul li a {
+      color: #ffffff;
+      display: block;
+      text-decoration: none;
+      align-items: flex-start;
+    }
+    .wrapper .sidebar ul li a .fas {
+      width: 25px;
+    }
+    .wrapper .sidebar ul li:hover {
+      background-color: #594f8d;
+    }
+    .wrapper .sidebar ul li:hover a {
+      color: #fff;
+    }
+    .wrapper .sidebar .social_media {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      padding-bottom: 40px;
+    }
+    .wrapper .sidebar .social_media a {
+      display: block;
+      width: 40px;
+      background: #594f8d;
+      height: 40px;
+      line-height: 45px;
+      text-align: center;
+      margin: 0 5px;
+      color: #bdb8d7;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+    .wrapper .main_content {
+      width: 100%;
+      margin-left: 200px;
+    }
+    .wrapper .main_content .header {
+      padding: 20px;
+      background: #fff;
+      color: #717171;
+      border-bottom: 1px solid #e0e4e8;
+    }
+    .wrapper .main_content .info {
+      margin: 20px;
+      color: #717171;
+      line-height: 25px;
+    }
+    .wrapper .main_content .info div {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
 <body>
   <header class="header">
-    <img id="LOGO" src="/img/logoVote.png" width="45" >
     <nav class="nav">
       <ul>
-        <li>
-          <a href="#"><b>Home</b> </a>
-        </li>
-        <li>
-          <a href="#" id="notifications"><small class="notif-count">9+</small><b>Notifications</b> </a>
+        <li class="menu-item"><a href="#">Home</a></li>
+        <li class="menu-item"><a href="#">About</a></li>
+        
+        <li id="notif-icon">
+          <a href="#"> Notifications
+            <img src="https://cdn-icons-png.flaticon.com/128/3602/3602123.png">
+            <span class="notif-count">3</span>
+          </a>
           <div class="notif-popup">
-            <div>
-                <div class="profile-photo">
-
-                </div>
-                <div class="notif-body">
-                    <b>New Post </b>by Mr. Mehta <br>
-                    <small class="text-muted">3 hrs ago</small>
-                </div>
-            </div>
-            <div>
-                <div class="profile-photo">
-
-                </div>
-                <div class="notif-body">
-                    <b>New Post </b>by Mrs. Kulkarni <br>
-                    <small class="text-muted">1 day ago</small>
-                </div>
-            </div>
-            <div>
-                <div class="profile-photo">
-
-                </div>
-                <div class="notif-body">
-                    <b>New Post </b>by Mr. Sharma <br>
-                    <small class="text-muted">2 days ago</small>
-                </div>
+            <h4>Notifications - 3</h4>
+            <div class="notif-body">
+              <div>
+                <p> <b>New Post</b> by Mr. Mehta<small>2 mins ago</small></p>
+              </div>
+              <div>
+                <p><b>New Post</b> by Mrs. Kulkarni <small>30 mins ago</small></p>
+              </div>
+              <div>
+                <p><b>New Post</b> by Mr. Sharma <small>1 hour ago</small></p>
+                
+              </div>
+              
             </div>
           </div>
         </li>
+        <li><a href="#" class="login">Login</a></li>
       </ul>
-      <a href="/signin" class="login">Login</a>
-      <img src="/assets/img/user.png" onclick="toggleMenu()" >
-    </nav>
-
-    <div class="wrap-subMenu" id="SUBMENU">
-      <div class="subMenu">
-        <div class="userInfo">
-          <img src="/assets/img/user.png" >
-          <h3>Vasundhara Dixit</h3>
+      <img src="https://e7.pngegg.com/pngimages/550/997/png-clipart-user-icon-foreigners-avatar-child-face.png" class="user" id="user">
+      <div id="wrap-subMenu" class="wrap-subMenu">
+        <div class="subMenu">
+          <div class="userInfo">
+            <img src="https://cdn-icons-png.flaticon.com/128/149/149071.png" alt="user">
+            <h3>User</h3>
+          </div>
+          <hr>
+          <a href="#" class="subMenu-link">
+            <img src="https://cdn-icons-png.flaticon.com/128/159/159604.png" alt="settings">
+            <p>Settings</p>
+            <span>&gt;</span>
+          </a>
+          <a href="#" class="subMenu-link">
+            <img src="https://cdn-icons-png.flaticon.com/128/1828/1828470.png" alt="logout">
+            <p>Logout</p>
+            <span>&gt;</span>
+          </a>
         </div>
-        <hr>
-        <a href="#" class="subMenu-link">
-          <img src="/assets/img/editing.png" alt="Edit Profile">
-          <p>Edit Profile</p>
-          <span>></span>
-        </a>
-        <a href="#" class="subMenu-link">
-          <img src="/assets/img/logout.png" alt="Logout">
-          <p>Logout</p>
-          <span>></span>
-        </a>
+      </div>
+    </nav>
+  </header>
+  <div class="wrapper">
+    <div class="sidebar">
+      <h2>Sidebar</h2>
+      <ul>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Messages</a></li>
+        <li><a href="#">Settings</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+      <div class="social_media">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
       </div>
     </div>
-  </header>
-
-  
-  
-  <main class="container">
-    <div class="wrapper">
-      <div class="sidebar">
-          <h2>Web Name</h2>
-          <ul>
-              <li><a href="#"><i class="fas fa-posts"></i>New Posts</a></li>
-              <li><a href="#"><i class="fas fa-announcement"></i>Announcements</a></li>
-              <li><a href="vote"><i class="fas fa-post"></i>Voting</a></li>
-              <li><a href="#"><i class="fas fa-post"></i>Start Discussion</a></li>
-              <li><a href="#"><i class="post"></i>Report an Issue</a></li>
-              <li><a href="about"><i class="fas fa-about"></i>About</a></li>
-              <li><a href="contact"><i class="fas fa-contact"></i>Contact</a></li>
-  
-          </ul> 
-          <div class="social_media">
-            <a href="#"><i class="fab fa-linkedin-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-        </div>
-      </div>
-
-      
-  </main>
-
+    
+  </div>
   <script>
-    let SUBMENU = document.getElementsByClassName("wrap-subMenu");
+    const SUBMENU = document.getElementById('wrap-subMenu');
+const user = document.getElementById('user');
+const menuItems = document.querySelectorAll('.menu-item > a');
+const notifPopup = document.querySelector('.notif-popup');
+const notifIcon = document.getElementById('notif-icon');
 
-    function toggleMenu() {
-      SUBMENU.classList.toggle("open-menu");
-    }
+menuItems.forEach((menuItem) => {
+  menuItem.addEventListener('click', () => {
+    menuItems.forEach((item) => item.classList.remove('active'));
+    menuItem.classList.add('active');
+  });
+});
+
+user.addEventListener('click', () => {
+  SUBMENU.classList.toggle('open-menu');
+});
+
+notifIcon.addEventListener('click', (event) => {
+  event.preventDefault();
+  notifPopup.style.display = notifPopup.style.display === 'none' ? 'block' : 'none';
+});
+
+document.addEventListener('click', (event) => {
+  const target = event.target;
+  if (!notifIcon.contains(target) && !notifPopup.contains(target)) {
+    notifPopup.style.display = 'none';
+  }
+});
+
   </script>
 </body>
-
 </html>
