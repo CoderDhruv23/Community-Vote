@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Announcements</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin-left: 230px;
+        }
+        .container {
+            display: flex;
+        }
+        .main-content {
+            flex: 3;
+            padding: 20px;
+        }
+        .sidebar {
+            flex: 1;
+            padding: 20px;
+            border-left: 2px solid #ccc;
+        }
+        .event {
+            display: flex;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            padding: 10px;
+            align-items: center;
+        }
+        .event img {
+            width: 100px;
+            height: 100px;
+            margin-left: 20px;
+            border-radius: 10px;
+        }
+        .event-details {
+            flex: 1;
+        }
+        .live-dot {
+            height: 10px;
+            width: 10px;
+            background-color: red;
+            border-radius: 50%;
+            display: inline-block;
+            animation: blinker 1s linear infinite;
+        }
+        @keyframes blinker {
+            50% { opacity: 0; }
+        }
+        .upcoming .days-left {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- <%- include("partials/sidePanel.ejs") %> -->
+        <div class="main-content">
+            <h1>Announcements</h1>
+            <h2>Live Event <span class="live-dot"></span></h2>
+            <div class="event">
+                <div class="event-details">
+                    <h3>Kids Badminton Tournament</h3>
+                    <p>Organizers: Sports Club</p>
+                    <p>Event Summary: A fun-filled badminton tournament for kids.</p>
+                </div>
+                <img src="badminton.jpg" alt="Kids Badminton Tournament">
+            </div>
+            <div class="event">
+                <div class="event-details">
+                    <h3>Kids Tennis Tournament</h3>
+                    <p>Organizers: Tennis Club</p>
+                    <p>Event Summary: A thrilling tennis tournament for kids.</p>
+                </div>
+                <img src="tennis.jpg" alt="Kids Tennis Tournament">
+            </div>
+            <h2>Upcoming Events</h2>
+            <div class="event upcoming">
+                <div class="event-details">
+                    <h3>Independence Day</h3>
+                    <p>Organizers: Community Center</p>
+                    <p>Event Summary: Celebrating the spirit of freedom.</p>
+                    <p class="days-left">10 days left</p>
+                </div>
+                <img src="independence.jpg" alt="Independence Day">
+            </div>
+            <div class="event upcoming">
+                <div class="event-details">
+                    <h3>Ganesh Chaturthi</h3>
+                    <p>Organizers: Cultural Committee</p>
+                    <p>Event Summary: Celebrating the festival of Ganesh Chaturthi.</p>
+                    <p class="days-left">15 days left</p>
+                </div>
+                <img src="ganesh.jpg" alt="Ganesh Chaturthi">
+            </div>
+        </div>
+        <div class="sidebar">
+            <h2>Past Events</h2>
+            <ul>
+                <li><a href="event1.html">Event 1</a></li>
+                <li><a href="event2.html">Event 2</a></li>
+                <li><a href="event3.html">Event 3</a></li>
+                <!-- Add more past events here -->
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
