@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recent Posts</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #f0f0f0;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .posts-section {
+      padding: 40px;
+      margin: 20px auto;
+      border-radius: 10px;
+      background-color: #1e1e1e;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      max-width: 800px;
+    }
+
+    .posts-section h2 {
+      color: #ffffff;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #ffffff;
+      padding-bottom: 10px;
+    }
+
+    .post {
+      padding: 20px;
+      margin-bottom: 20px;
+      background-color: #282828;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .post h3 {
+      margin-top: 0;
+      color: #ffffff;
+    }
+
+    .post p {
+      margin: 10px 0;
+    }
+
+    .post-meta {
+      font-size: 0.9em;
+      color: #b0b0b0;
+    }
+  </style>
+</head>
+<body>
+  <section class="posts-section" id="posts">
+    <h2>Recent Posts</h2>
+    <% posts.forEach(post => { %>
+      <div class="post">
+        <h3><%= post.title %></h3>
+        <p class="post-meta">Posted by <%= post.author %> on <%= post.date %></p>
+        <p><%= post.content %></p>
+      </div>
+    <% }); %>
+  </section>
+</body>
+</html>

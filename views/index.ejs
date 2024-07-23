@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CVote</title>
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
@@ -76,8 +78,70 @@
   .middle .post-btn:hover {
     background-color: #594f8d;
   }
+
+  .middle .feeds .feed {
+    background-color: rgb(231, 224, 240);
+    border-radius: 20px;
+    padding: 10px;
+    margin: 1rem 1rem;
+    line-height: 1.5;
+    width: 700px;
+  }
+
+  .middle .feeds .feed:hover {
+    background-color: rgb(235, 232, 240);
+  }
+
+  .middle .feed .head {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .middle .feed .user {
+    display: flex;
+    gap: 1rem;
+    width: 100%; /* Ensure the user div takes full width */
+  }
+
+  .middle .feed .user .info {
+    flex: 1; /* Allow the info div to take available space */
+    word-wrap: break-word; /* Break long words to fit the box */
+  }
+
+  .middle .feed .action-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.4rem;
+    margin: 0.6rem;
+  }
+
+  .middle .feed .interaction-buttons {
+    background-color: rgb(237, 233, 233);
+    padding-top: 10PX;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 20PX;
+  }
+
   
-    </style>
+
+  .middle .feed #upVote {
+    border-radius: 35%;
+  }
+
+.middle .feed #downVote {
+    border-radius: 35%;
+  }
+  .middle .feed #upVote:hover {
+    background-color: #47398f82;
+  }
+
+  .middle .feed #downVote:hover {
+    background-color: #47398f82;
+  }
+
+</style>
 <body>
 
 
@@ -93,14 +157,153 @@
     <!-- ----------------------------middle--------------------------------- -->
     <div class="middle">
       <form class="create-post">
-        <div class="profile-photo">
-
-        </div>
+        
         <input type="text" placeholder="..." class="create-post" >
 
         <button type="submit" class="post-btn">Post</button>
       </form>
+
+      <div class="feeds">
+        <div class="feed">
+          <div class="head">
+            <div class="user">
+              <div class="info">
+                <h3>Akash Gupta</h3>
+                <small>B402, 15 mins ago</small>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem velit odit, vitae eum dolorem quibusdam molestiae placeat mollitia maiores ut maxime ex nam similique quam itaque impedit culpa, assumenda temporibus.</p>
+              </div>
+            </div>
+            <span class="edit material-symbols-outlined">more_horiz</span>
+          </div>
+          <div class="action-button">
+            <div class="interaction-buttons">
+              <button id="upVote" class="material-symbols-outlined">arrow_upward</button>
+              <button id="downVote" class="material-symbols-outlined">arrow_downward</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="feed">
+          <div class="head">
+            <div class="user">
+              <div class="info">
+                <h3>Akash Gupta</h3>
+                <small>B402, 15 mins ago</small>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem velit odit, vitae eum dolorem quibusdam molestiae placeat mollitia maiores ut maxime ex nam similique quam itaque impedit culpa, assumenda temporibus.</p>
+              </div>
+            </div>
+            <span class="edit material-symbols-outlined">more_horiz</span>
+          </div>
+          <div class="action-button">
+            <div class="interaction-buttons">
+              <button id="upVote" class="material-symbols-outlined">arrow_upward</button>
+              <button id="downVote" class="material-symbols-outlined">arrow_downward</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="feed">
+          <div class="head">
+            <div class="user">
+              <div class="info">
+                <h3>Akash Gupta</h3>
+                <small>B402, 15 mins ago</small>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem velit odit, vitae eum dolorem quibusdam molestiae placeat mollitia maiores ut maxime ex nam similique quam itaque impedit culpa, assumenda temporibus.</p>
+              </div>
+            </div>
+            <span class="edit material-symbols-outlined">more_horiz</span>
+          </div>
+          <div class="action-button">
+            <div class="interaction-buttons">
+              <button id="upVote" class="material-symbols-outlined">arrow_upward</button>
+              <button id="downVote" class="material-symbols-outlined">arrow_downward</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="feed">
+          <div class="head">
+            <div class="user">
+              <div class="info">
+                <h3>Akash Gupta</h3>
+                <small>B402, 15 mins ago</small>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem velit odit, vitae eum dolorem quibusdam molestiae placeat mollitia maiores ut maxime ex nam similique quam itaque impedit culpa, assumenda temporibus.</p>
+              </div>
+            </div>
+            <span class="edit material-symbols-outlined">more_horiz</span>
+          </div>
+          <div class="action-button">
+            <div class="interaction-buttons">
+              <button id="upVote" class="material-symbols-outlined">arrow_upward</button>
+              <button id="downVote" class="material-symbols-outlined">arrow_downward</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="feeds">
+          <div class="feed">
+            <div class="head">
+              <div class="user">
+                <div class="info">
+                  <h3>Akash Gupta</h3>
+                  <small>B402, 15 mins ago</small>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem velit odit, vitae eum dolorem quibusdam molestiae placeat mollitia maiores ut maxime ex nam similique quam itaque impedit culpa, assumenda temporibus.</p>
+                </div>
+              </div>
+              <span class="edit material-symbols-outlined">more_horiz</span>
+            </div>
+            <div class="action-button">
+              <div class="interaction-buttons">
+                <button id="upVote" class="material-symbols-outlined">arrow_upward</button>
+                <button id="downVote" class="material-symbols-outlined">arrow_downward</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="feeds">
+            <div class="feed">
+              <div class="head">
+                <div class="user">
+                  <div class="info">
+                    <h3>Akash Gupta</h3>
+                    <small>B402, 15 mins ago</small>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem velit odit, vitae eum dolorem quibusdam molestiae placeat mollitia maiores ut maxime ex nam similique quam itaque impedit culpa, assumenda temporibus.</p>
+                  </div>
+                </div>
+                <span class="edit material-symbols-outlined">more_horiz</span>
+              </div>
+              <div class="action-button">
+                <div class="interaction-buttons">
+                  <button id="upVote" class="material-symbols-outlined">arrow_upward</button>
+                  <button id="downVote" class="material-symbols-outlined">arrow_downward</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="feeds">
+              <div class="feed">
+                <div class="head">
+                  <div class="user">
+                    <div class="info">
+                      <h3>Akash Gupta</h3>
+                      <small>B402, 15 mins ago</small>
+                      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem velit odit, vitae eum dolorem quibusdam molestiae placeat mollitia maiores ut maxime ex nam similique quam itaque impedit culpa, assumenda temporibus.</p>
+                    </div>
+                  </div>
+                  <span class="edit material-symbols-outlined">more_horiz</span>
+                </div>
+                <div class="action-button">
+                  <div class="interaction-buttons">
+                    <button id="upVote" class="material-symbols-outlined">arrow_upward</button>
+                    <button id="downVote" class="material-symbols-outlined">arrow_downward</button>
+                  </div>
+                </div>
+              </div>
+
+      </div>
     </div>
+
+    
     <!-- ----------------------------right--------------------------------- -->
     <div class="right">
 

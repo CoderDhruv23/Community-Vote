@@ -23,6 +23,10 @@ app.get("/vote", (req, res) => {
     res.render("vote.ejs");
   });
 
+  app.get("/posts", (req, res) => {
+    res.render("posts.ejs");
+  });
+
 app.get("/about", (req, res) => {
     res.render("about.ejs");
   });
