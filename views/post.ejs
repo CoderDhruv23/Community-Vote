@@ -1,32 +1,234 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Post</title>
-    <link rel="stylesheet" href="/path/to/your/styles.css">
+    <title>Post Creation Form</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.container {
+    width: 60%;
+    max-width: 800px;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.tabs {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.tab {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: #555;
+    font-size: 16px;
+}
+
+.tab.active {
+    border-bottom: 2px solid #594f8d;
+    font-weight: bold;
+    color: #000;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+input[type="text"], textarea {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #000;
+    box-sizing: border-box;
+}
+
+textarea {
+    height: 100px;
+}
+
+.upload-area {
+    border: 1px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+}
+
+.upload-btn {
+    border: none;
+    padding: 10px;
+    background-color: #594f8d;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.upload-btn:hover {
+    background-color: #594f8d;
+}
+
+.poll-options {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-option-btn {
+    border: none;
+    padding: 10px;
+    background-color: #594f8d;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.add-option-btn:hover {
+    background-color: #594f8d;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.footer-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    background-color: #594f8d;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #005bb5;
+}
+
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Create a New Post</h1>
-        <form action="/post" method="POST">
-            <div class="form-group">
-                <label for="author">Author:</label>
-                <input type="text" id="author" name="author" required>
+    <div class="overlay">
+        <div class="container">
+            <div class="tabs">
+                <button class="tab active" onclick="openTab(event, 'post')">Post</button>
+                <button class="tab" onclick="openTab(event, 'images')">Images & Video</button>
+                <button class="tab" onclick="openTab(event, 'link')">Link</button>
+                <button class="tab" onclick="openTab(event, 'poll')">Poll</button>
             </div>
-            <div class="form-group">
-                <label for="room">Room:</label>
-                <input type="text" id="room" name="room" required>
+            <div class="form-container">
+                <div id="post" class="tab-content active">
+                    <input type="text" placeholder="Title" maxlength="300">
+                    <textarea placeholder="Text (optional)"></textarea>
+                </div>
+                <div id="images" class="tab-content">
+                    <input type="text" placeholder="Title" maxlength="300">
+                    <div class="upload-area">
+                        <p>Drag and drop images or <button class="upload-btn">Upload</button></p>
+                    </div>
+                </div>
+                <div id="link" class="tab-content">
+                    <input type="text" placeholder="Title" maxlength="300">
+                    <input type="text" placeholder="Url">
+                </div>
+                <div id="poll" class="tab-content">
+                    <input type="text" placeholder="Title" maxlength="300">
+                    <div class="poll-options">
+                        <input type="text" placeholder="Option 1">
+                        <input type="text" placeholder="Option 2">
+                        <button class="add-option-btn">Add Option</button>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="time">Time:</label>
-                <input type="text" id="time" name="time" required>
+            <div class="footer">
+                <label>
+                    <input type="checkbox" id="notify" name="notify" checked>
+                    Send me post reply notifications
+                </label>
+                <div class="footer-buttons">
+                    <button class="btn" onclick="saveDraft()">Save Draft</button>
+                    <button class="btn" onclick="postContent()">Post</button>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="content">Content:</label>
-                <textarea id="content" name="content" required></textarea>
-            </div>
-            <button type="submit">Post</button>
-        </form>
+        </div>
     </div>
+
+
+    <script>
+        function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tab-content");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].classList.remove("active");
+    }
+    tablinks = document.getElementsByClassName("tab");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active");
+    }
+    document.getElementById(tabName).classList.add("active");
+    evt.currentTarget.classList.add("active");
+}
+
+function saveDraft() {
+    alert("Draft saved!");
+}
+
+function postContent() {
+    alert("Post submitted!");
+}
+
+// Open the default tab
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('.tab.active').click();
+});
+
+    </script>
 </body>
 </html>
