@@ -1,8 +1,14 @@
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import mongoose from 'mongoose';
+
+import connectDB from './database.js';
+import registerRoute from './routes/register.js';
+
 
 const app = express();
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -52,34 +58,22 @@ app.get("/about", (req, res) => {
   });
 
 
-  // Dummy data for posts
-const posts = [
-  {
-    title: 'Post Title 1',
-    author: 'User1',
-    date: 'July 22, 2024',
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel ligula scelerisque, finibus odio eu, hendrerit sapien.'
-  },
-  {
-    title: 'Post Title 2',
-    author: 'User2',
-    date: 'July 21, 2024',
-    content: 'Quisque vel nulla euismod, pulvinar quam at, sollicitudin quam. Vivamus sit amet sapien ut urna dictum tincidunt.'
-  },
-  {
-    title: 'Post Title 3',
-    author: 'User3',
-    date: 'July 20, 2024',
-    content: 'Sed quis augue nec augue sodales consectetur. Suspendisse potenti. Nunc at risus non metus volutpat facilisis.'
-  }
-];
+  // -------------------------------------------------------------------------------------
+  //connection
+  // mongoose
+  //   .connect('mongodb://127.0.0.1:27017/CVote')
+  //   .then(() => console.log("MongoDB COnnected"))
+  //   .catch((err) => console.log("Mongo Error", err));
+  
+  // //schema---------------------
+  // const userSchema = new mongoose.Schema({
+  //   firstName: {
+  //     type: String,
+  //   }
+  // });
 
-app.set('view engine', 'ejs');
-
-app.get("/posts", (req, res) => {
-  res.render("posts.ejs", { posts });
-});
-
+  // //model
+  // const User = mongoose.model("user", userSchema);
 
 
 //-----------------------------------------------------------------------------------------------------
