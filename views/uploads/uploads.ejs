@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Uploads</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #ffffff;
+            padding: 5px 0;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        nav ul li a:hover {
+            background-color: #656464;
+        }
+        main {
+            padding: 20px;
+        }
+        main h1 {
+            position: absolute;
+            top: 9%;
+            left: 45%;
+        }
+        article {
+            background-color: #a798db52;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            margin-left: 230px;
+            margin-top: 60px;
+        }
+        article:hover {
+            background-color: #a798db38;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/uploads/new">Upload a File</a></li>
+            </ul>
+        </nav>
+    </header>
+    <%- include("partials/sidePanel.ejs") %> 
+    <main>
+        <h1>All Uploads</h1>
+        <% uploads.forEach(upload => { %>
+            <article>
+                <h2><a href="/uploads/<%= upload._id %>"><%= upload.title %></a></h2>
+                <p><%= upload.description.substring(0, 100) %>...</p>
+                <p><small>By <%= upload.author %> on <%= upload.date.toDateString() %></small></p>
+            </article>
+        <% }) %>
+    </main>
+</body>
+</html>

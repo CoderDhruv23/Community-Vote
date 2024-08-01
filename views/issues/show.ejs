@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= issue.title %></title>
+    <style>
+        /* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1em 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a, nav ul li button {
+    color: #fff;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font: inherit;
+}
+
+nav ul li a:hover, nav ul li button:hover {
+    text-decoration: underline;
+}
+
+main {
+    margin: 2em auto;
+    padding: 1em;
+    max-width: 800px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+article {
+    margin-bottom: 2em;
+}
+
+article p {
+    margin-bottom: 1em;
+}
+
+article p small {
+    color: #666;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1><%= issue.title %></h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/issues">Back to All Issues</a></li>
+                <li><a href="/issues/<%= issue._id %>/edit">Edit</a></li>
+                <form action="/issues/<%= issue._id %>?_method=DELETE" method="POST" style="display:inline;">
+                    <button type="submit">Delete</button>
+                </form>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article>
+            <p><%= issue.content %></p>
+            <p><small>By <%= issue.author %> on <%= issue.date.toDateString() %></small></p>
+        </article>
+    </main>
+</body>
+</html>

@@ -43,7 +43,7 @@ body {
   border-bottom: 1px solid #ffffff;
   border-bottom: 1px solid rgba(0,0,0,0.05);
   border-top: 1px solid rgba(255,255,255,0.05);
-  border-radius: 20px;
+  border-radius: 0px;
 }    
 
 .wrapper .sidebar ul li a{
@@ -86,12 +86,13 @@ body {
         text-align: center;
         margin: 0 5px;
         color: #bdb8d7;
-
+        z-index: 0;
         border-radius: 5px;
       } 
 
 .wrapper .sidebar .social_media a:hover {
   background: #543bd4 ;
+  z-index: 0;
 }
 
 .wrapper .main_content{
@@ -121,7 +122,9 @@ body {
     display: none !important;
   }
 }
-
+.social_media i {
+  z-index: 1;
+}
 #openPopup {
   cursor: pointer;
 }
@@ -200,16 +203,18 @@ body {
         <div class="sidebar">
             <h2>CVote</h2>
             <ul>
-                <li><a href="post"><i class="fas fa-posts"></i>New Posts</a></li>
+                <li><a href="posts"><i class="fas fa-posts"></i>Posts</a></li>
+                <li><a href="uploads"><i class="fas fa-uploads"></i>Uploads</a></li>
                 <li><a href="anouncement"><i class="fas fa-anouncement"></i>Announcements</a></li>
                 <li><a href="vote"><i class="fas fa-post"></i>Voting</a></li>
-                <li><a href="post"><i class="fas fa-post"></i>Start Discussion</a></li>
+                <li><a href="issues"><i class="fas fa-post"></i>All Issues</a></li>
                 <li><a id="openPopup" href="#"><i class="fas fa-post"></i>Report Issue</a></li>
                 <li><a href="about"><i class="fas fa-about"></i>About</a></li>
                 <li><a href="contact"><i class="fas fa-contact"></i>Contact</a></li>
             </ul> 
             <div class="social_media">
-              <li><a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></li></a>
+              
+              <a href="https://www.linkedin.com/in/vasundhara-dixit/"><i class="fab fa-linkedin"></i></a>
               <a href="#"><i class="fab fa-twitter"></i></a>
               <a href="#"><i class="fab fa-instagram"></i></a>
           </div>
@@ -235,15 +240,15 @@ body {
                 <label for="description">Description</label>
                 <textarea id="description" name="description" required></textarea>
                 
-                <label for="category">Category</label>
-                <input type="text" id="category" name="category" required>
+                <label for="Author">Author</label>
+                <input type="text" id="Author" name="Author" required>
 
-                <label for="priority">Priority</label>
+                <!-- <label for="priority">Priority</label>
                 <select id="priority" name="priority" required>
                     <option value="high">High</option>
                     <option value="medium">Medium</option>
                     <option value="low">Low</option>
-                </select>
+                </select> -->
                 
                 <button type="submit">Report</button>
             </form>
@@ -266,10 +271,10 @@ document.getElementById('issueForm').addEventListener('submit', function(event) 
     event.preventDefault();
     const title = document.getElementById('title').value;
     const description = document.getElementById('description').value;
-    const category = document.getElementById('category').value;
+    const Author = document.getElementById('Author').value;
     const priority = document.getElementById('priority').value;
 
-    console.log('Issue reported:', { title, description, category, priority });
+    console.log('Issue reported:', { title, description, Author, priority });
 
     // Clear the form
     document.getElementById('issueForm').reset();

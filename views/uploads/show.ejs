@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= upload.title %></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em 0;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+        nav ul li a,
+        nav ul li button {
+            color: #fff;
+            text-decoration: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font: inherit;
+        }
+        nav ul li a:hover,
+        nav ul li button:hover {
+            text-decoration: underline;
+        }
+        main {
+            margin: 2em auto;
+            padding: 1em;
+            max-width: 800px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            line-height: 1.6;
+        }
+        .buttons {
+            margin-top: 1em;
+        }
+        .buttons a,
+        .buttons button {
+            padding: 10px 20px;
+            margin-right: 10px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .buttons a:hover,
+        .buttons button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><%= upload.title %></h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/uploads">Back to All Uploads</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article>
+            <p><%= upload.description %></p>
+            <p><strong>File URL:</strong> <a href="<%= upload.fileUrl %>"><%= upload.fileUrl %></a></p>
+            <p><small>By <%= upload.author %> on <%= upload.date.toDateString() %></small></p>
+        </article>
+        <div class="buttons">
+            <a href="/uploads/<%= upload._id %>/edit">Edit</a>
+            <form action="/uploads/<%= upload._id %>?_method=DELETE" method="POST" style="display:inline;">
+                <button type="submit">Delete</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

@@ -19,15 +19,19 @@
         .sidebar {
             flex: 1;
             padding: 20px;
-            border-left: 2px solid #ccc;
         }
         .event {
             display: flex;
-            border: 2px solid #ccc;
+            border: 2px solid #cccccc;
+            background-color: rgba(195, 187, 231, 0.547);
             border-radius: 10px;
             margin-bottom: 20px;
             padding: 10px;
             align-items: center;
+        }
+        .event:hover {
+            background-color: rgba(195, 187, 231, 0.315);
+
         }
         .event img {
             width: 100px;
@@ -57,7 +61,7 @@
 </head>
 <body>
     <div class="container">
-        <!-- <%- include("partials/sidePanel.ejs") %> -->
+        <%- include("partials/sidePanel.ejs") %> 
         <div class="main-content">
             <h1>Announcements</h1>
             <h2>Live Event <span class="live-dot"></span></h2>
@@ -97,15 +101,16 @@
                 <img src="ganesh.jpg" alt="Ganesh Chaturthi">
             </div>
         </div>
-        <div class="sidebar">
+        <!-- <div class="sidebar">
             <h2>Past Events</h2>
             <ul>
                 <li><a href="event1.html">Event 1</a></li>
                 <li><a href="event2.html">Event 2</a></li>
                 <li><a href="event3.html">Event 3</a></li>
-                <!-- Add more past events here -->
+                Add more past events here 
             </ul>
-        </div>
+        </div> -->
     </div>
+    <%- include("partials/footer.ejs") %>
 </body>
 </html>

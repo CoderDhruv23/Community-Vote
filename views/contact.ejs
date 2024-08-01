@@ -18,6 +18,7 @@
       height: 100vh;
       display: flex;
       align-items: center;
+      margin-left: 230px;
       justify-content: space-evenly;
       background-color: transparent;
     }
@@ -103,6 +104,7 @@
   </style>
 </head>
 <body>
+  <%- include("partials/sidePanel.ejs") %>
   <div class="contact-container">
     <form action="https://api.web3forms.com/submit" method="POST" class="contact-left">
       <div class="contact-left-title">
@@ -116,8 +118,9 @@
       <button type="submit">Submit</button>
     </form>
     <div class="contact-right">
-      <img src="https://cdn.discordapp.com/attachments/1078626172272910419/1265361507018084382/contact-us.png?ex=66a13b3c&is=669fe9bc&hm=598243409276d0bd8e14eb3926a798dff5f68f8328bf0a1ba6b7f4369172f69a&" width="400rem">
+      <img src="https://cdni.iconscout.com/illustration/premium/thumb/contact-us-3483599-2912016.png" width="700rem">
     </div>
   </div>
+  <%- include("partials/footer.ejs") %>
 </body>
 </html>

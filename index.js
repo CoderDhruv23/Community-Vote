@@ -2,13 +2,20 @@ import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import mongoose from 'mongoose';
-
+import dotenv from 'dotenv';
+import bodyParser from 'body-parser';
+import session from 'express-session';
 import connectDB from './database.js';
-import registerRoute from './routes/register.js';
+import signinRouter from './routes/signin.js';  // Import signinRouter
+import registerRouter from './routes/register.js';  // Import registerRouter
+import issueRouter from './routes/issues.js';
+import uploadsRouter from './routes/uploads.js';
+import Upload from './models/upload.js';
 
+dotenv.config();  // Load environment variables from .env file
 
 const app = express();
-
+app.use(express.json());
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -19,64 +26,84 @@ app.set('views', [path.join(__dirname, 'views'), path.join(__dirname, 'server/ro
 // Serve static files from the public directory
 app.use(express.static(path.join(__dirname, 'views/partials')));
 
+// Middleware for form handling
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 // Route for rendering the EJS template
 app.get('/', (req, res) => {
-  res.render("index.ejs");
+  res.render('index');
 });
 
+app.get('/vote', (req, res) => {
+  res.render('vote');
+});
 
-app.get("/vote", (req, res) => {
-    res.render("vote.ejs");
+app.get('/posts', (req, res) => {
+  res.render('posts');
+});
+
+// app.get('/uploads', (req, res) => {
+//   res.render('uploads');
+// });
+
+
+app.get('/about', (req, res) => {
+  res.render('about');
+});
+
+app.get('/contact', (req, res) => {
+  res.render('contact');
+});
+
+app.get('/signin', (req, res) => {
+  res.render('signin');
+});
+
+app.get('/register', (req, res) => {
+  res.render('register');
+});
+
+app.get('/anouncement', (req, res) => {
+  res.render('anouncement');
+});
+
+app.use('/', signinRouter);
+app.use('/', registerRouter);
+app.use('/issues', issueRouter);
+app.use('/uploads', uploadsRouter);
+
+// MongoDB connection
+const mongoURI = process.env.MONGO_URI;
+
+mongoose
+  .connect(mongoURI)
+  .then(() => console.log(`Database Connected: ${mongoose.connection.host}:${mongoose.connection.port}`))
+  .catch((err) => {
+    console.log(err);
   });
 
-  app.get("/posts", (req, res) => {
-    res.render("posts.ejs");
+
+// Middleware
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(session({
+    secret: 'your_secret_key',
+    resave: false,
+    saveUninitialized: true
+}));
+
+
+app.get("/", async (req, res) => {
+  const allBlogs = await Blog.find({});
+  res.render("index", { 
+    user: req.user,
+    data: allBlogs, // Update to match the `views/index.ejs` template
   });
+});
 
-app.get("/about", (req, res) => {
-    res.render("about.ejs");
-  });
-  
-  app.get("/contact", (req, res) => {
-    res.render("contact.ejs");
-  });
-
-  app.get("/signin", (req, res) => {
-    res.render("signin.ejs");
-  });
-
-  app.get("/register", (req, res) => {
-    res.render("register.ejs");
-  });
-
-  app.get("/anouncement", (req, res) => {
-    res.render("anouncement.ejs");
-  });
-
-  app.get("/post", (req, res) => {
-    res.render("post.ejs");
-  });
+//login
 
 
-  // -------------------------------------------------------------------------------------
-  //connection
-  // mongoose
-  //   .connect('mongodb://127.0.0.1:27017/CVote')
-  //   .then(() => console.log("MongoDB COnnected"))
-  //   .catch((err) => console.log("Mongo Error", err));
-  
-  // //schema---------------------
-  // const userSchema = new mongoose.Schema({
-  //   firstName: {
-  //     type: String,
-  //   }
-  // });
-
-  // //model
-  // const User = mongoose.model("user", userSchema);
-
-
-//-----------------------------------------------------------------------------------------------------
 
 // Error handling for 404 - Not Found
 app.use((req, res, next) => {
@@ -93,3 +120,7 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public')));

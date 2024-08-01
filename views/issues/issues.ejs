@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Issues</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 5px 0;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        nav ul li a:hover {
+            background-color: #515152;
+        }
+        main {
+            padding: 20px;
+        }
+        main h1 {
+            position: absolute;
+            top: 6%;
+            left: 45%;
+        }
+        article {
+            background-color: #d0c7ec6a;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            margin-left: 230px;
+            border-radius: 15px;
+        }
+        article:hover {
+            background-color: #d0c7ec42;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/issues/new">Report an Issue</a></li>
+            </ul>
+        </nav>
+    </header>
+    <%- include("partials/sidePanel.ejs") %> 
+    <main>
+        <h1>All Issues</h1>
+        <% issues.forEach(issue => { %>
+            <article>
+                <h2><a href="/issues/<%= issue._id %>"><%= issue.title %></a></h2>
+                <p><%= issue.content.substring(0, 100) %>...</p>
+                <p><small>By <%= issue.author %> on <%= issue.date.toDateString() %></small></p>
+            </article>
+        <% }) %>
+    </main>
+    <%- include("partials/footer.ejs") %>
+</body>
+</html>

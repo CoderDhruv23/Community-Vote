@@ -1,0 +1,111 @@
+<!-- views/issues/new.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Issue</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 5px 0;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        nav ul li a:hover {
+            background-color: #545454;
+        }
+        main {
+            padding: 20px;
+        }
+        main h1 {
+            position: absolute;
+            top: 9%;
+            left: 42%;
+        }
+        form {
+            position: absolute;
+            left: 31%;
+            top : 22%;
+            width: 600px;
+            margin: 0 auto;
+            background-color: #c9bfee83;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+        form label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        form input,
+        form textarea {
+            width: 96%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #f1efef;
+        }
+        form input:hover,
+        form textarea:hover {
+            background-color: #f8f6f6;
+        }
+
+        form button {
+            padding: 10px 20px;
+            background-color: #54409c;
+            border-radius: 10px;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #6b5aa7;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/issues">Back to All Issues</a></li>
+            </ul>
+        </nav>
+    </header>
+    <%- include("partials/sidePanel.ejs") %>
+    <main>
+        <h1>Report New Issue</h1>
+        <form action="/issues" method="POST">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required>
+            <label for="content">Content:</label>
+            <textarea id="content" name="content" required></textarea>
+            <label for="author">Author:</label>
+            <input type="text" id="author" name="author" required>
+            <button type="submit">Submit Issue</button>
+        </form>
+    </main>
+</body>
+</html>
