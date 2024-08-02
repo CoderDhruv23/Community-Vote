@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Election Voting Page</title>
+    <style>
+        
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Light background color for a clean look */
+    color: #333; /* Dark text color for readability */
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px; /* Gap between sections */
+}
+
+.voting-section, .candidate-info {
+    background: white; /* Clean white background for content sections */
+    border-radius: 10px; /* Slightly rounded corners */
+    padding: 20px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    flex: 1;
+    position: relative; /* Position for the next button */
+}
+
+.voting-section {
+    margin-right: 20px;
+}
+
+.candidate-info {
+    margin-left: 20px;
+}
+
+h2, h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #333; /* Dark text for headings */
+}
+
+.candidate {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #f9f9f9; /* Light background for candidate items */
+    border: 1px solid #e0e0e0; /* Light border for separation */
+}
+
+.candidate p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.vote-button, .confirm-vote-button, .next-button {
+    display: block;
+    width: 100%;
+    padding: 12px; /* Slightly larger padding for better touch targets */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px; /* Larger font size for readability */
+    font-weight: bold;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.vote-button {
+    background-color: black; /* Black color for 'Select' buttons */
+    color: white;
+}
+
+.vote-button:hover {
+    background-color: #38373c6a; /* Slightly lighter black on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+.confirm-vote-button, .next-button {
+    background-color: #594f8d; /* Maintain the existing color scheme */
+    color: white;
+}
+
+.confirm-vote-button:hover, .next-button:hover {
+    background-color: #453e70; /* Darker shade on hover */
+}
+
+.next-button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: auto;
+    padding: 10px 20px;
+}
+
+.confirm-vote-button {
+    margin-bottom: 20px;
+}
+
+button:focus {
+    outline: 2px solid #594f8d; /* Outline for focus state */
+}
+
+.candidate .vote-button {
+    margin-top: 10px;
+ }
+
+.selected-button {
+    background-color: #4caf50; /* Green background for selected state */
+    color: white; /* White text color */
+}
+
+.selected-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="voting-section">
+            <h2 id="position-title">President</h2>
+            <div class="candidate">
+                <p>Candidate 1</p>
+                <button class="vote-button" id="candidate1" onclick="selectCandidate('Candidate 1', 'candidate1')">Select</button>
+            </div>
+            <div class="candidate">
+                <p>Candidate 2</p>
+                <button class="vote-button" id="candidate2" onclick="selectCandidate('Candidate 2', 'candidate2')">Select</button>
+            </div>
+            <div class="candidate">
+                <p>Candidate 3</p>
+                <button class="vote-button" id="candidate3" onclick="selectCandidate('Candidate 3', 'candidate3')">Select</button>
+            </div>
+            <button class="confirm-vote-button" onclick="confirmVote()">Confirm Vote</button>
+        </div>
+        <div class="candidate-info">
+            <div class="candidate-info-content">
+                <h3>Candidate Details</h3>
+                <p id="candidate-details">Select a candidate to see details here.</p>
+            </div>
+            <div class="button-container">
+                <button class="next-button" onclick="nextPosition()" disabled>Next Position</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let selectedCandidate = '';
+        let selectedButtonId = '';
+        let currentPositionIndex = 0;
+        const positions = ['President', 'Vice President', 'Treasurer', 'Secretary'];
+
+        function selectCandidate(candidate, buttonId) {
+    if (selectedButtonId) {
+        const previousButton = document.getElementById(selectedButtonId);
+        previousButton.innerText = 'Select';
+        previousButton.classList.remove('selected-button'); // Remove selected class from previously selected button
+    }
+    selectedCandidate = candidate;
+    selectedButtonId = buttonId;
+    const currentButton = document.getElementById(buttonId);
+    currentButton.innerText = 'Selected';
+    currentButton.classList.add('selected-button'); // Add selected class to the currently selected button
+    document.getElementById('candidate-details').innerText = `Details about ${candidate}: \nCandidate Promises, Manifesto, and history...`;
+}
+
+
+function confirmVote() {
+    if (selectedCandidate === '') {
+        alert('Please select a candidate before confirming your vote.');
+        return;
+    }
+    const confirm = window.confirm('Are you sure you want to vote for ' + selectedCandidate + '?');
+    if (confirm) {
+        alert('Your vote for ' + selectedCandidate + ' has been recorded.');
+        document.getElementById(selectedButtonId).innerText = 'Voted';
+        document.querySelector('.confirm-vote-button').innerText = 'Voted';
+        document.querySelector('.next-button').disabled = false; // Enable the next button
+        selectedCandidate = ''; // Reset selected candidate
+    }
+}
+
+
+function nextPosition() {
+    if (selectedCandidate !== '') {
+        alert('Please confirm your vote before proceeding to the next position.');
+        return;
+    }
+
+    // Check if a vote has been confirmed for the current position
+    const currentPositionVoted = document.querySelector('.vote-button.selected-button') !== null;
+    
+    if (!currentPositionVoted) {
+        alert('Please select a candidate before proceeding to the next position.');
+        return;
+    }
+
+    if (currentPositionIndex < positions.length - 1) {
+        currentPositionIndex++;
+        document.getElementById('position-title').innerText = positions[currentPositionIndex];
+        selectedCandidate = '';
+        selectedButtonId = '';
+        resetVoteButtons(); // Ensure all buttons are reset
+        document.getElementById('candidate-details').innerText = 'Select a candidate to see details here.';
+        document.querySelector('.next-button').disabled = true; // Keep the next button disabled until a vote is confirmed
+    } else {
+        alert('Thank you for voting. Your vote is valuable.');
+    }
+}
+
+
+
+
+function resetVoteButtons() {
+    const voteButtons = document.querySelectorAll('.vote-button');
+    voteButtons.forEach(button => {
+        button.innerText = 'Select';
+        button.classList.remove('selected-button'); // Remove selected class
+    });
+    document.querySelector('.confirm-vote-button').innerText = 'Confirm Vote';
+}
+
+
+    </script>
+</body>
+</html>
