@@ -12,10 +12,14 @@
             background-color: #f4f4f4;
         }
         header {
-            background-color: #333;
-            color: #fff;
+            background-color: #ededed;
             padding: 10px 0;
             text-align: center;
+        }
+        
+        nav {
+            height: 20px;
+            
         }
         nav ul {
             list-style: none;
@@ -28,13 +32,14 @@
         nav ul li a {
             color: #fff;
             text-decoration: none;
+            color: #000;
         }
         main {
-            padding: 20px;
+            padding: 20px 0;
         }
         form {
             max-width: 600px;
-            margin: 0 auto;
+            margin: 50px auto;
             background-color: #fff;
             padding: 20px;
             border: 1px solid #ccc;
@@ -45,7 +50,7 @@
         }
         form input,
         form textarea {
-            width: 100%;
+            width: 95%;
             padding: 10px;
             margin-bottom: 10px;
             border: 1px solid #ccc;
@@ -57,19 +62,28 @@
             border: none;
             cursor: pointer;
         }
+
+        h1 {
+            color: #000;
+            position: absolute;
+            left: 675px;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Upload a File</h1>
         <nav>
             <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="/uploads">Back to All Uploads</a></li>
+                <li><a href="/uploads">Back to All Posts</a></li>
             </ul>
         </nav>
     </header>
     <main>
+                <h1>Make a Post!</h1>
+
+        <%- include("partials/sidePanel.ejs") %> 
+
         <form action="/uploads" method="POST">
             <label for="title">Title:</label>
             <input type="text" id="title" name="title" required>
@@ -79,7 +93,7 @@
             <input type="text" id="fileUrl" name="fileUrl" required>
             <label for="author">Author:</label>
             <input type="text" id="author" name="author" required>
-            <button type="submit">Upload File</button>
+            <button type="submit">Submit</button>
         </form>
     </main>
 </body>

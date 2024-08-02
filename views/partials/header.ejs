@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>header</title>
+  <title>Your Site Title</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -14,22 +16,33 @@
     .header {
       width: 100%;
       display: flex;
-      justify-content: flex-end;
       align-items: center;
       padding: 10px 20px;
       background-color: #ffffff;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
+    .logo {
+      margin-right: 20px;
+    }
+    .logo h1 {
+      margin: 0;
+      font-size: 24px; /* Adjust font size as needed */
+      color: #333; /* Adjust text color as needed */
+    }
+
     .nav {
       display: flex;
       align-items: center;
+      flex: 1;
     }
     .nav ul {
       list-style: none;
       margin: 0;
-      padding: 0 60px;
+      padding: 0;
       display: flex;
+      flex: 1;
+      justify-content: flex-end;
     }
     .nav ul li {
       position: relative;
@@ -75,10 +88,10 @@
     }
     .nav ul li ul li a:hover {
       background-color: #f0f0f0;
-      color: #000000;
+      color: #ffffff;
     }
     .login {
-      background: #aea3ef;
+      background: #5c48ee;
       color: #fff;
       padding: 10px 20px;
       width: 80px;
@@ -87,7 +100,7 @@
       border-radius: 5px;
     }
     .login:hover {
-      color: #fff;
+      background-color: #5b48eeb6;
     }
     .nav img {
       width: 30px;
@@ -189,13 +202,10 @@
     }
     .notif-body > div {
       padding-top: 8px;
-      
     }
-
     .notif-body > p {
-        width: 200px;
+      width: 200px;
     }
-
     .notif-popup::before {
       content: '';
       width: 1.5rem;
@@ -215,64 +225,6 @@
     }
     .notif-popup small {
       display: block;
-    }
-    .wrapper {
-      display: flex;
-      position: relative;
-    }
-    .wrapper .sidebar {
-      width: 230px;
-      height: 100%;
-      background: #0f0445;
-      padding: 30px 0px;
-      position: fixed;
-    }
-    .wrapper .sidebar h2 {
-      color: #fff;
-      text-transform: uppercase;
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    .wrapper .sidebar ul li {
-      padding: 15px;
-      border-bottom: 1px solid #ffffff;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-    }
-    .wrapper .sidebar ul li a {
-      color: #ffffff;
-      display: block;
-      text-decoration: none;
-      align-items: flex-start;
-    }
-    .wrapper .sidebar ul li a .fas {
-      width: 25px;
-    }
-    .wrapper .sidebar ul li:hover {
-      background-color: #594f8d;
-    }
-    .wrapper .sidebar ul li:hover a {
-      color: #fff;
-    }
-    .wrapper .sidebar .social_media {
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      padding-bottom: 40px;
-    }
-    .wrapper .sidebar .social_media a {
-      display: block;
-      width: 40px;
-      background: #594f8d;
-      height: 40px;
-      line-height: 45px;
-      text-align: center;
-      margin: 0 5px;
-      color: #bdb8d7;
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
     }
     .wrapper .main_content {
       width: 100%;
@@ -296,11 +248,16 @@
 </head>
 <body>
   <header class="header">
+    <!-- Logo Section -->
+    <div class="logo">
+      <h1>CVOTE</h1>
+    </div>
+
+    <!-- Navigation Section -->
     <nav class="nav">
       <ul>
         <li class="menu-item"><a href="#">Home</a></li>
         <li class="menu-item"><a href="about">About</a></li>
-        
         <li id="notif-icon">
           <a href="#"> Notifications
             <img src="https://cdn-icons-png.flaticon.com/128/3602/3602123.png">
@@ -317,84 +274,15 @@
               </div>
               <div>
                 <p><b>New Post</b> by Mr. Sharma <small>1 hour ago</small></p>
-                
               </div>
-              
             </div>
           </div>
         </li>
-        <li><a href="signin" class="login">Login</a></li>`
-      <img src="https://static.vecteezy.com/system/resources/previews/019/896/008/original/male-user-avatar-icon-in-flat-design-style-person-signs-illustration-png.png" class="user" id="user">
-      <div id="wrap-subMenu" class="wrap-subMenu">
-        <div class="subMenu">
-          <div class="userInfo">
-            <img src="https://cdn-icons-png.flaticon.com/128/149/149071.png" >
-            <h3>User</h3>
-          </div>
-          <hr>
-          <a href="#" class="subMenu-link">
-            <img src="https://cdn-icons-png.flaticon.com/128/159/159604.png" alt="settings">
-            <p>Settings</p>
-            <span>&gt;</span>
-          </a>
-          <a href="#" class="subMenu-link">
-            <img src="https://cdn-icons-png.flaticon.com/128/1828/1828470.png" alt="logout">
-            <p>Logout</p>
-            <span>&gt;</span>
-          </a>
-        </div>
-      </div>
+        <!-- <li><a href="signin" class="login">Login</a></li> -->
+        <img src="https://static.vecteezy.com/system/resources/previews/019/896/008/original/male-user-avatar-icon-in-flat-design-style-person-signs-illustration-png.png" class="user" id="user">
+        <li><a href="/user-profile" title="User Profile"><i class="fas fa-user fa-lg"></i></a></li>      
     </ul>
     </nav>
   </header>
-  <div class="wrapper">
-    <!-- <div class="sidebar">
-      <h2>Sidebar</h2>
-      <ul>
-        <li><a href="#">Dashboard</a></li>
-        <li><a href="#">Profile</a></li>
-        <li><a href="#">Messages</a></li>
-        <li><a href="#">Settings</a></li>
-        <li><a href="#">Logout</a></li>
-      </ul>
-      <div class="social_media">
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-      </div>
-    </div> -->
-    
-  </div>
-  <script>
-    const SUBMENU = document.getElementById('wrap-subMenu');
-const user = document.getElementById('user');
-const menuItems = document.querySelectorAll('.menu-item > a');
-const notifPopup = document.querySelector('.notif-popup');
-const notifIcon = document.getElementById('notif-icon');
-
-menuItems.forEach((menuItem) => {
-  menuItem.addEventListener('click', () => {
-    menuItems.forEach((item) => item.classList.remove('active'));
-    menuItem.classList.add('active');
-  });
-});
-
-user.addEventListener('click', () => {
-  SUBMENU.classList.toggle('open-menu');
-});
-
-notifIcon.addEventListener('click', (event) => {
-  event.preventDefault();
-  notifPopup.style.display = notifPopup.style.display === 'none' ? 'block' : 'none';
-});
-
-document.addEventListener('click', (event) => {
-  const target = event.target;
-  if (!notifIcon.contains(target) && !notifPopup.contains(target)) {
-    notifPopup.style.display = 'none';
-  }
-});
-
-  </script>
 </body>
 </html>

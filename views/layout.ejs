@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Management Landing Page</title>
+    <style>
+        /* main.css */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f9;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.bento-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.bento-item {
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.bento-item a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.bento-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="bento-box">
+            <div class="bento-item" id="post">
+                <a href="/posts">Posts</a>
+            </div>
+            <div class="bento-item" id="upload">
+                <a href="/uploads">Uploads</a>
+            </div>
+            <div class="bento-item" id="announcements">
+                <a href="/announcements">Announcements</a>
+            </div>
+            <div class="bento-item" id="voting">
+                <a href="/voting">Voting</a>
+            </div>
+            <div class="bento-item" id="issues">
+                <a href="/issues">Issues</a>
+            </div>
+            <div class="bento-item" id="report-issue">
+                <a href="/report-issue">Report Issue</a>
+            </div>
+            <div class="bento-item" id="about-us">
+                <a href="/about">About Us</a>
+            </div>
+            <div class="bento-item" id="contact">
+                <a href="/contact">Contact</a>
+            </div>
+        </div>
+    </div>
+    <script src="/scripts/main.js"></script>
+</body>
+</html>

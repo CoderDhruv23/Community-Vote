@@ -4,222 +4,394 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CVote</title>
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
-    *,
-    *::before,
-  *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    list-style: none;
-    border: none;
+  :root {
+    --primary-color: #5c48ee;
+    --primary-color-dark: #4a1f8a;
+    --secondary-color: #f9fafe;
+    --text-color: #333333;
+    --white: #ffffff;
+    --max-width: 1200px;
   }
-
+  
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
   body {
     font-family: "Poppins", sans-serif;
-    overflow-x: hidden ;
+    background-color: var(--secondary-color);
   }
-
-  main .container {
-    display: grid;
-    grid-template-columns: 18vh auto 20vw;
-    column-gap: 2rem;
-    position: relative;
-  }
-
-  main .container .left {
-    height: max-content;
-    position: sticky;
-  }
-
-  .middle {
-    margin-left: 120px;
-    height: max-content;
-    min-height: 380px;
-  }
-
-  .middle .create-post {
-    width: 700px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 1rem;
-    background: white;
-    padding: 0.4rem;
-    border-radius: 20px;
-    border: none;
-  }
-  .middle .create-post {
-    background: rgb(234, 234, 234);
-  }
-  .middle .create-post input[type="text"] {
-    justify-self: start;
-    width: 100%;
-    padding-left: 1rem;
-    background-color: transparent;
-    margin-right: 1rem;
-  }
-
-  .middle .post-btn {
-    background-color: #48398f ;
-    width: 6rem;
-    padding: 10px 20px;
-    border-radius: 20px;
-    color: white;
-    
-  }
-
-  .middle .post-btn:hover {
-    background-color: #594f8d;
-  }
-
-  .middle .feeds .feed {
-    background-color: rgb(231, 224, 240);
-    border-radius: 20px;
-    padding: 10px;
-    margin: 1rem 1rem;
-    line-height: 1.5;
-    width: 700px;
-  }
-
-  .middle .feeds .feed:hover {
-    background-color: rgb(235, 232, 240);
-  }
-
-  .middle .feed .head {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .middle .feed .user {
-    display: flex;
-    gap: 1rem;
-    width: 100%; /* Ensure the user div takes full width */
-  }
-
-  .middle .feed .user .info {
-    flex: 1; /* Allow the info div to take available space */
-    word-wrap: break-word; /* Break long words to fit the box */
-  }
-
-  .middle .feed .action-button {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1.4rem;
-    margin: 0.6rem;
-  }
-
-  .middle .feed .interaction-buttons {
-    background-color: rgb(237, 233, 233);
-    padding-top: 10PX;
-    padding-left: 15px;
-    padding-right: 15px;
-    border-radius: 20PX;
-  }
-
   
-
-  .middle .feed #upVote {
-    border-radius: 35%;
+  nav {
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 1rem;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
-
-.middle .feed #downVote {
-    border-radius: 35%;
+  
+  .nav__logo a {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: 0.3s;
   }
-  .middle .feed #upVote:hover {
-    background-color: #47398f82;
+  
+  .nav__links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
   }
-
-  .middle .feed #downVote:hover {
-    background-color: #47398f82;
+  
+  .link a {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: 0.3s;
   }
-
-
-  .middle img {
+  
+  .link a:hover {
+    color: var(--primary-color);
+  }
+  
+  .link .nav__btn {
+    padding: 0.5rem 2rem;
+    color: var(--white) !important;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+  }
+  
+  .link .nav__btn:hover {
+    background-color: var(--primary-color-dark);
+  }
+  
+  .container {
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 1rem;
+    min-height: calc(100vh - 100px);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem;
+  }
+  
+  .content__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .content__container h1 {
+    font-size: 3rem;
+    font-weight: 400;
+    line-height: 3.5rem;
+    color: var(--primary-color-dark);
+    margin-bottom: 1rem;
+  }
+  
+  .heading__1 {
+    font-weight: 800;
+    font-size: 3.5rem;
+    line-height: 0.5rem;
+  }
+  
+  .heading__2 {
+    font-weight: 700;
+    color: var(--primary-color);
+  }
+  
+  .content__container p {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+  }
+  
+  .social__links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .social__links a {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    transition: 0.3s;
+  }
+  
+  .social__links a:hover {
+    color: var(--primary-color-dark);
+  }
+  
+  .image__container {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    place-content: center;
+  }
+  
+  .image__container img {
+    width: 100%;
+    max-width: 300px;
+    margin: auto;
+    border-radius: 10px;
+  }
+  
+  .image__container img:nth-child(1) {
+    transform: translateY(70px);
+  }
+  
+  .image__container img:nth-child(2) {
+    transform: translateY(-70px);
+  }
+  
+  .image__content {
     position: absolute;
-    top: 10px;
-    left: 238px;
+    width: 100%;
+    max-width: 310px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-35%, 50%);
+    background: linear-gradient(
+      to right,
+      var(--primary-color),
+      var(--primary-color-dark)
+    );
+    color: var(--white);
+    padding: 1rem 2rem;
+    border-radius: 10px;
+  }
+  
+  .image__content li {
+    margin-bottom: 0.5rem;
+  }
+  
+  @media (width < 900px) {
+    .link a:not(.nav__btn) {
+      display: none;
+    }
+  
+    .container {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  
+    .content__container {
+      text-align: center;
+    }
+  
+    .social__links {
+      justify-content: center;
+    }
+  
+    img {
+      position: absolute;
+    }
+  
+    .image__container img {
+      transform: translateY(0) !important;
+    }
+  }
+
+  /* footer */
+  footer {
+    width: 100%;
+    background-color: #0f0f0f;
+    color: #ecf0f1;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .footer-left, .footer-center, .footer-right {
+    flex: 1;
+    padding: 10px;
+  }
+  
+  .footer-left h3 {
+    margin-bottom: 10px;
+  }
+  
+  .footer-left p {
+    margin: 0 0 20px;
+  }
+  
+  .footer-links, .social-icons {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-links li, .social-icons li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+  
+  .footer-links a, .social-icons a {
+    color: #ecf0f1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-links a:hover, .social-icons a:hover {
+    color: #3498db;
+  }
+  
+  .social-icons i {
+    font-size: 20px;
+  }
+  
+  .footer-right p {
+    margin: 0;
+    margin-right: 5px;
+  }
+  
+  .team-section {
+    background-color: transparent;
+    backdrop-filter: blur(20px);
+    padding: 20px 0;
+  }
+  
+  .team-section h3 {
+    margin-bottom: 20px;
+  }
+  
+  .team-members {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .team-member {
+    margin: 10px;
+    text-align: center;
+  }
+  
+  .team-member img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+  
+  .team-member h4 {
+    margin: 5px 0;
+  }
+  
+  .team-member p {
+    margin: 0;
+    color: #bdc3c7;
   }
 </style>
 <body>
 
-<nav>
-    <%- include("partials/header.ejs") %>
+<nav>    
+  <div class="nav__logo"><a href="#">CVOTE</a></div>
+  <ul class="nav__links">
+    <li class="link"><a href="home">Home</a></li>
+    <li class="link"><a href="about">About Us</a></li>
+    <li class="link"><a href="#">Services</a></li>
+    <li class="link"><a href="register" class="nav__btn">Register</a></li>
+  </ul>
 </nav>
 
 
-
-<main>
-  <div class="container">
-    <!-- ----------------------------Left--------------------------------- -->
-    <div class="left">
-      <%- include("partials/sidePanel.ejs") %>
+<div class="middle">
+  <section class="container">
+    <div class="content__container">
+      <h1>
+        CVote<br />
+        <span class="heading__1">Community Management </span><br />
+        <span class="heading__2">Platform</span>
+      </h1>
+      <p>
+        Welcome to our Community Management Platform!
+        Our platform is designed to streamline and enhance the way communities interact and manage their activities. Whether you're part of a neighborhood association, a club, or any other community group, our platform offers a comprehensive set of tools to keep everyone informed and engaged.
+      </p>
+      <div class="social__links">
+        <a href="https://github.com/your-profile" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
     </div>
-    <!-- ----------------------------middle--------------------------------- -->
-    <div class="middle">
-
-      <img src="https://www.kindpng.com/picc/m/239-2394230_communities-illustration-team-collaboration-hd-png-download.png" alt="" width="1350px">
-
-
-
-
-
-
-      <!-- <form class="create-post">
-        
-        <input type="text" placeholder="..." class="create-post" >
-
-        <button type="submit" class="post-btn">Post</button>
-      </form>
-
-      
-
-            <div class="feeds">
-              <div class="feed">
-                <div class="head">
-                  <div class="user">
-                    <div class="info">
-                      <h3>Akash Gupta</h3>
-                      <small>B402, 15 mins ago</small>
-                      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem velit odit, vitae eum dolorem quibusdam molestiae placeat mollitia maiores ut maxime ex nam similique quam itaque impedit culpa, assumenda temporibus.</p>
-                    </div>
-                  </div>
-                  <span class="edit material-symbols-outlined">more_horiz</span>
-                </div>
-                <div class="action-button">
-                  <div class="interaction-buttons">
-                    <button id="upVote" class="material-symbols-outlined">arrow_upward</button>
-                    <button id="downVote" class="material-symbols-outlined">arrow_downward</button>
-                  </div>
-                </div>
-              </div>
-
-      </div> -->
+    <div class="image__container">
+      <img src="https://www.kindpng.com/picc/m/239-2394230_communities-illustration-team-collaboration-hd-png-download.png" width="380px"/>
+      <div class="image__content">
+        <ul>
+          <li>bada-bing bada-bong</li>
+          <li>blem.. blem..</li>
+        </ul>
+      </div>
     </div>
+  </section>
+</div>
 
-    
-    <!-- ----------------------------right--------------------------------- -->
-    <div class="right">
-
+<footer>
+  <div class="footer-container">
+    <div class="footer-left">
+      <h3>Community Management Platform</h3>
+      <p>Empowering communities through collaboration and engagement.</p>
+      <ul class="social-icons">
+        <li><a href="https://github.com/your-profile" target="_blank"> <i class="fab fa-github"></i></a></li>
+        <li><a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></li></a>
+        <li><a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a></li>
+      </ul>
+    </div>
+    <div class="footer-center">
+      <ul class="footer-links">
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+        <li><a href="/terms">Terms of Service</a></li>
+        <li><a href="/privacy">Privacy Policy</a></li>
+      </ul>
+    </div>
+    <div class="footer-right">
+      <p>&copy; <%= new Date().getFullYear() %> Community Management Platform. All rights reserved.</p>
     </div>
   </div>
-</main>
-  
+  <div class="team-section">
+    <h3>Our Team</h3>
+    <div class="team-members">
+      <div class="team-member">
+        <img src="/images/team1.jpg" alt="Team Member 1">
+        <h4>Dhruv Rajhans</h4>
+        <p>Lead Developer</p>
+      </div>
+      <div class="team-member">
+        <img src="/images/team2.jpg" alt="Team Member 2">
+        <h4>Vasundhara Dixit</h4>
+        <p>Lead Developer</p>
+      </div>
+      <div class="team-member">
+        <img src="/images/team3.jpg" alt="Team Member 3">
+        <h4>Raj Barshikar</h4>
+        <p>Project Manager</p>
+      </div>
+      <!-- Add more team members as needed -->
+    </div>
+  </div>
+</footer>
 
-  <%- include("partials/footer.ejs") %>
-
-
-
-
-
-  
 </body>
 </html>

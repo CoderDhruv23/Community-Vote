@@ -34,13 +34,15 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/', (req, res) => {
   res.render('index');
 });
-
+app.get('/home', (req, res) => {
+  res.render('home');
+});
 app.get('/vote', (req, res) => {
   res.render('vote');
 });
 
-app.get('/posts', (req, res) => {
-  res.render('posts');
+app.get('/post', (req, res) => {
+  res.render('post');
 });
 
 // app.get('/uploads', (req, res) => {

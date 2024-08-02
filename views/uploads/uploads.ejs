@@ -62,13 +62,13 @@
         <nav>
             <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="/uploads/new">Upload a File</a></li>
+                <li><a href="/uploads/new">Make a Post</a></li>
             </ul>
         </nav>
     </header>
     <%- include("partials/sidePanel.ejs") %> 
     <main>
-        <h1>All Uploads</h1>
+        <h1>All Posts</h1>
         <% uploads.forEach(upload => { %>
             <article>
                 <h2><a href="/uploads/<%= upload._id %>"><%= upload.title %></a></h2>

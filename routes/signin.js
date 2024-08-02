@@ -1,7 +1,9 @@
 import express from 'express';
-const router = express.Router();
+import { v4 as uuidv4 } from 'uuid';
 import User from '../models/User.js';
+import {setUser} from '../service/auth.js';
 
+const router = express.Router();
 router.get('/signin', (req, res) => {
     res.render('signin');
 });
@@ -25,7 +27,10 @@ router.post('/signin', async (req, res) => {
         // or
         // const token = jwt.sign({ userId: user._id }, 'your_jwt_secret');
 
-        res.redirect('/'); // Redirect to the desired page after sign-in
+        const sessionID = uuidv4();
+        setUser (sessionID, user);
+        res.cookie("uid", sessionID);
+        res.redirect('/home'); // Redirect to the desired page after sign-in
     } catch (error) {
         console.error(error);
         res.status(500).send('Server error');
