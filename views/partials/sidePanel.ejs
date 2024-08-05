@@ -207,11 +207,11 @@ body {
             
             <ul>
                 <li><a href="home"><i class="fas fa-posts"></i>Home</a></li>
-                <li><a href="uploads"><i class="fas fa-uploads"></i>Uploads</a></li>
+                <li><a href="uploads"><i class="fas fa-uploads"></i>Posts</a></li>
                 <li><a href="anouncement"><i class="fas fa-anouncement"></i>Announcements</a></li>
                 <li><a href="vote"><i class="fas fa-post"></i>Voting</a></li>
                 <li><a href="issues"><i class="fas fa-post"></i>All Issues</a></li>
-                <li><a id="openPopup" href="#"><i class="fas fa-post"></i>Report Issue</a></li>
+                <!-- <li><a id="openPopup" href="#"><i class="fas fa-post"></i>Report Issue</a></li> -->
                 <li><a href="about"><i class="fas fa-about"></i>About</a></li>
                 <li><a href="contact"><i class="fas fa-contact"></i>Contact</a></li>
             </ul> 
@@ -232,7 +232,7 @@ body {
     </div>
 
     <!-- Report an Issue Popup Form -->
-    <div id="popup" class="popup">
+    <!-- <div id="popup" class="popup">
         <div class="popup-content">
             <span id="closePopup" class="close">&times;</span>
             <h2>Report an Issue</h2>
@@ -246,45 +246,45 @@ body {
                 <label for="Author">Author</label>
                 <input type="text" id="Author" name="Author" required>
 
-                <!-- <label for="priority">Priority</label>
+                 <label for="priority">Priority</label>
                 <select id="priority" name="priority" required>
                     <option value="high">High</option>
                     <option value="medium">Medium</option>
                     <option value="low">Low</option>
                 </select> -->
                 
-                <button type="submit">Report</button>
+                <!-- <button type="submit">Report</button>
             </form>
         </div>
-    </div>
+    </div> --> 
 
     <script>
       // scripts.js
 
-document.getElementById('openPopup').addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent default action for anchor tag
-    document.getElementById('popup').style.display = 'flex';
-});
+// document.getElementById('openPopup').addEventListener('click', function(event) {
+//     event.preventDefault(); // Prevent default action for anchor tag
+//     document.getElementById('popup').style.display = 'flex';
+// });
 
-document.getElementById('closePopup').addEventListener('click', function() {
-    document.getElementById('popup').style.display = 'none';
-});
+// document.getElementById('closePopup').addEventListener('click', function() {
+//     document.getElementById('popup').style.display = 'none';
+// });
 
-document.getElementById('issueForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    const title = document.getElementById('title').value;
-    const description = document.getElementById('description').value;
-    const Author = document.getElementById('Author').value;
-    const priority = document.getElementById('priority').value;
+// document.getElementById('issueForm').addEventListener('submit', function(event) {
+//     event.preventDefault();
+//     const title = document.getElementById('title').value;
+//     const description = document.getElementById('description').value;
+//     const Author = document.getElementById('Author').value;
+//     const priority = document.getElementById('priority').value;
 
-    console.log('Issue reported:', { title, description, Author, priority });
+//     console.log('Issue reported:', { title, description, Author, priority });
 
-    // Clear the form
-    document.getElementById('issueForm').reset();
+//     // Clear the form
+//     document.getElementById('issueForm').reset();
 
-    // Close the popup
-    document.getElementById('popup').style.display = 'none';
-});
+//     // Close the popup
+//     document.getElementById('popup').style.display = 'none';
+// });
 
     </script>
 </body>

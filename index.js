@@ -69,7 +69,9 @@ app.get('/register', (req, res) => {
 app.get('/anouncement', (req, res) => {
   res.render('anouncement');
 });
-
+app.get('/profile', (req, res) => {
+  res.render('profile');
+});
 app.use('/', signinRouter);
 app.use('/', registerRouter);
 app.use('/issues', issueRouter);

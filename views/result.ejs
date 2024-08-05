@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Election Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .result-section {
+            margin-top: 20px;
+        }
+        .position-result {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        .position-result:last-child {
+            border-bottom: none;
+        }
+        .position-title {
+            font-size: 1.2em;
+            color: #333;
+        }
+        .position-winner {
+            font-size: 1.2em;
+            color: #000;
+            font-weight: bold;
+        }
+        .more-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-top: 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 1em;
+        }
+        .more-button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Election Results</h2>
+        <div class="result-section">
+            <div class="position-result">
+                <span class="position-title">President</span>
+                <span class="position-winner">Candidate 1</span>
+            </div>
+            <div class="position-result">
+                <span class="position-title">Vice President</span>
+                <span class="position-winner">Candidate 2</span>
+            </div>
+            <div class="position-result">
+                <span class="position-title">Treasurer</span>
+                <span class="position-winner">Candidate 3</span>
+            </div>
+            <div class="position-result">
+                <span class="position-title">Secretary</span>
+                <span class="position-winner">Candidate 4</span>
+            </div>
+            <button class="more-button">More if there...</button>
+        </div>
+    </div>
+</body>
+</html>
