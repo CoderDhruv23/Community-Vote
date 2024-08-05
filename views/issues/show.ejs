@@ -19,10 +19,12 @@ header {
     color: #fff;
     padding: 1em 0;
     text-align: center;
+    height: 40px;
 }
 
 header h1 {
     margin: 0;
+    position: absolute;
 }
 
 nav ul {
@@ -55,11 +57,15 @@ main {
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
+    margin-top: 20px; 
+    position: absolute;
+    top:130px;
+    left: 25%;
 }
 
 article {
     margin-bottom: 2em;
+   
 }
 
 article p {
@@ -74,10 +80,10 @@ article p small {
 </head>
 <body>
     <header>
-        <h1><%= issue.title %></h1>
+
         <nav>
             <ul>
-                <li><a href="/">Home</a></li>
+                <li><a href="/home">Home</a></li>
                 <li><a href="/issues">Back to All Issues</a></li>
                 <li><a href="/issues/<%= issue._id %>/edit">Edit</a></li>
                 <form action="/issues/<%= issue._id %>?_method=DELETE" method="POST" style="display:inline;">
@@ -87,7 +93,7 @@ article p small {
         </nav>
     </header>
     <main>
-        .
+        .        <h1><%= issue.title %></h1>
         <article>
             <p><%= issue.content %></p>
             <p><small>By <%= issue.author %> on <%= issue.date.toDateString() %></small></p>

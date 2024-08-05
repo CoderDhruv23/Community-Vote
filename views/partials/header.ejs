@@ -8,7 +8,7 @@
 
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: "Poppins", sans-serif;
       margin: 0;
       padding: 0;
       background-color: #f7f7f7;
@@ -29,6 +29,8 @@
       margin: 0;
       font-size: 24px; /* Adjust font size as needed */
       color: #333; /* Adjust text color as needed */
+      margin-left: 30px ;
+
     }
 
     .nav {
@@ -43,6 +45,8 @@
       display: flex;
       flex: 1;
       justify-content: flex-end;
+      margin-right: 35px ;
+
     }
     .nav ul li {
       position: relative;
@@ -260,7 +264,6 @@
         <li class="menu-item"><a href="about">About</a></li>
         <li id="notif-icon">
           <a href="#"> Notifications
-            <img src="https://cdn-icons-png.flaticon.com/128/3602/3602123.png">
             <span class="notif-count">3</span>
           </a>
           <div class="notif-popup">
@@ -279,10 +282,17 @@
           </div>
         </li>
         <!-- <li><a href="signin" class="login">Login</a></li> -->
-        <img src="https://static.vecteezy.com/system/resources/previews/019/896/008/original/male-user-avatar-icon-in-flat-design-style-person-signs-illustration-png.png" class="user" id="user">
-        <li><a href="/user-profile" title="User Profile"><i class="fas fa-user fa-lg"></i></a></li>      
+        <li><a href="profile" title="User Profile"><i class="fas fa-user fa-lg"></i></a></li>      
     </ul>
     </nav>
   </header>
+  <script>
+     let SUBMENU = document.getElementsByClassName("wrap-subMenu");
+
+function toggleMenu() {
+  SUBMENU.classList.toggle("open-menu");
+}
+
+  </script>
 </body>
 </html>
