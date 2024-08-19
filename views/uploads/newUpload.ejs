@@ -5,69 +5,138 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload a File</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        header {
-            background-color: #ededed;
-            padding: 10px 0;
-            text-align: center;
-        }
-        
-        nav {
-            height: 20px;
-            
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-        }
-        nav ul li {
-            display: inline;
-            margin: 0 10px;
-        }
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            color: #000;
-        }
-        main {
-            padding: 20px 0;
-        }
-        form {
-            max-width: 600px;
-            margin: 50px auto;
-            background-color: #fff;
-            padding: 20px;
-            border: 1px solid #ccc;
-        }
-        form label {
-            display: block;
-            margin: 10px 0 5px;
-        }
-        form input,
-        form textarea {
-            width: 95%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-        }
-        form button {
-            padding: 10px 20px;
-            background-color: #333;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
-        h1 {
-            color: #000;
-            position: absolute;
-            left: 675px;
-        }
+:root {
+  --primary-color: #5c48ee;
+  --primary-color-dark: #4a1f8a;
+  --secondary-color: #f9fafe;
+  --text-color: #333333;
+  --white: #ffffff;
+  --max-width: 1200px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--secondary-color);
+}
+
+header {
+  background-color: none;
+  padding-top: 10px;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  text-align: right;
+}
+
+nav ul li {
+  display: inline-block;
+  margin: 10px 15px;
+}
+
+nav ul li a {
+  color: var(--white);
+  text-decoration: none;
+  padding: 8px 15px;
+  font-weight: 500;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  background-color: var(--primary-color);
+
+}
+
+nav ul li a:hover {
+  background-color: #7767f3;
+}
+
+main {
+  padding: 0px 20px;
+  max-width: var(--max-width);
+  margin: 80px auto;
+}
+
+h1 {
+  text-align: center;
+  font-size: 28px;
+  color: var(--primary-color-dark);
+  margin-bottom: 40px;
+}
+
+form {
+  background-color: var(--white);
+  padding: 30px;
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+  font-weight: 500;
+  margin-bottom: 8px;
+  display: block;
+  color: var(--text-color);
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  background-color: #f9f9ff;
+}
+
+form button {
+  padding: 12px 20px;
+  background-color: var(--primary-color-dark);
+  border-radius: 5px;
+  color: var(--white);
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+  main {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  form {
+    padding: 20px;
+  }
+}
+
     </style>
 </head>
 <body>
@@ -81,8 +150,6 @@
     </header>
     <main>
                 <h1>Make a Post!</h1>
-
-        <%- include("partials/sidePanel.ejs") %> 
 
         <form action="/uploads" method="POST">
             <label for="title">Title:</label>

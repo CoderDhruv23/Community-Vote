@@ -7,37 +7,54 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin-left: 230px;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
         }
         .container {
             display: flex;
+            justify-content: space-between;
+            padding: 30px;
+            max-width: 1350px;
+            margin: 0 -40px;
+            gap: 20px; /* Gap between sections */
         }
         .main-content {
             flex: 3;
             padding: 20px;
+            background: rgb(255, 255, 255);
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
         }
         .sidebar {
             flex: 1;
             padding: 20px;
+            background: white;
+           
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #333;
+            font-weight: 600;
         }
         .event {
             display: flex;
-            border: 2px solid #cccccc;
-            background-color: rgba(195, 187, 231, 0.547);
-            border-radius: 10px;
+            border: 1px solid #e0e0e0;
+            background-color: #ffffff;
+            border-radius: 8px;
             margin-bottom: 20px;
-            padding: 10px;
+            padding: 15px;
             align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .event:hover {
-            background-color: rgba(195, 187, 231, 0.315);
-
+            background-color: #f1effa;
         }
         .event img {
             width: 100px;
             height: 100px;
             margin-left: 20px;
-            border-radius: 10px;
+            border-radius: 8px;
         }
         .event-details {
             flex: 1;
@@ -64,7 +81,7 @@
         <%- include("partials/sidePanel.ejs") %> 
         <div class="main-content">
             <h1>Announcements</h1>
-            <h2>Live Event <span class="live-dot"></span></h2>
+            <h2>Live Events <span class="live-dot"></span></h2>
             <div class="event">
                 <div class="event-details">
                     <h3>Kids Badminton Tournament</h3>
@@ -101,15 +118,7 @@
                 <img src="https://cdn1.vectorstock.com/i/1000x1000/67/45/happy-ganesh-chaturthi-greetings-design-vector-38986745.jpg" alt="Ganesh Chaturthi">
             </div>
         </div>
-        <!-- <div class="sidebar">
-            <h2>Past Events</h2>
-            <ul>
-                <li><a href="event1.html">Event 1</a></li>
-                <li><a href="event2.html">Event 2</a></li>
-                <li><a href="event3.html">Event 3</a></li>
-                Add more past events here 
-            </ul>
-        </div> -->
+        
     </div>
     <%- include("partials/footer.ejs") %>
 </body>
