@@ -45,6 +45,10 @@ app.get('/post', (req, res) => {
   res.render('post');
 });
 
+// const adminRoutes = require('./routes/admin');
+// app.use('/admin', adminRoutes);
+
+
 // app.get('/uploads', (req, res) => {
 //   res.render('uploads');
 // });

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+
+    <h2>Election Management</h2>
+    <form action="/admin/start-election" method="POST">
+        <button type="submit">Start Election</button>
+    </form>
+    <form action="/admin/end-election" method="POST">
+        <button type="submit">End Election</button>
+    </form>
+
+    <h2>Notification Management</h2>
+    <form action="/admin/add-notification" method="POST">
+        <textarea name="message" required></textarea>
+        <button type="submit">Send Notification</button>
+    </form>
+
+    <h2>Announcement Management</h2>
+    <form action="/admin/add-announcement" method="POST">
+        <input type="text" name="title" placeholder="Title" required>
+        <textarea name="content" placeholder="Content" required></textarea>
+        <button type="submit">Add Announcement</button>
+    </form>
+
+    <h2>User Management</h2>
+    <form action="/admin/delete-user/<%= userId %>" method="POST">
+        <input type="text" name="userId" placeholder="User ID" required>
+        <button type="submit">Delete User</button>
+    </form>
+
+    <h2>Post Management</h2>
+    <form action="/admin/delete-post/<%= postId %>" method="POST">
+        <input type="text" name="postId" placeholder="Post ID" required>
+        <button type="submit">Delete Post</button>
+    </form>
+
+    <a href="/admin/logout">Logout</a>
+</body>
+</html>
